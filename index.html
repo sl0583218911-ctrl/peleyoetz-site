@@ -7,14 +7,14 @@
 <meta name="description" content="הקרן למורשת פלא יועץ — הציון הקדוש של הרב אליעזר פאפו זצ״ל בסיליסטרה, בולגריה. תכנון ביקור, שליחת שמות לתפילה, מורשת הספר, ושותפות בהחזקת הציון.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500;600;700;900&family=IBM+Plex+Sans+Hebrew:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500;600;700;900&family=Assistant:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
   --navy-950:#060B19; --navy-900:#0B132B; --navy-850:#101935; --navy-800:#182449;
   --gold-600:#9E7D3B; --gold-500:#C5A059; --gold-400:#D4AF37; --gold-300:#E2C46C; --gold-100:#FAF4E5;
   --cream-100:#FAF8F5; --cream-50:#F3EFEA; --white:#fff;
   --text-dark:#1C202B; --text-muted:#5A6275; --text-light:#E0E4EC;
-  --font-h:'Frank Ruhl Libre',serif; --font-b:'IBM Plex Sans Hebrew',sans-serif;
+  --font-h:'Frank Ruhl Libre',serif; --font-b:'Assistant','Frank Ruhl Libre',sans-serif;
   --max:1240px; --sp:96px;
   --r-sm:6px; --r-md:12px; --r-lg:20px; --r-xl:32px;
   --sh-soft:0 4px 20px rgba(10,17,40,.06); --sh-card:0 10px 34px rgba(10,17,40,.10); --sh-elev:0 22px 55px rgba(10,17,40,.18);
@@ -166,8 +166,7 @@ nav.main a:hover::after{transform:scaleX(1)}
 .dial-ring::before{content:"";position:absolute;inset:-1px;border-radius:50%;background:repeating-conic-gradient(from 0deg,rgba(158,125,59,.55) 0 1deg,transparent 1deg 15deg);-webkit-mask:radial-gradient(transparent 89%,#000 90%);mask:radial-gradient(transparent 89%,#000 90%)}
 .dial-ring::after{content:"";position:absolute;inset:12%;border:1px solid rgba(158,125,59,.14);border-radius:50%}
 .dial-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:37%;height:37%;border-radius:50%;background:radial-gradient(circle at 40% 35%,var(--navy-800),var(--navy-950));display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;color:#fff;box-shadow:var(--sh-elev),inset 0 0 0 3px rgba(212,175,55,.3);z-index:2;padding:12px}
-.dial-center img{width:66%;max-width:120px}
-.dial-center span{font-family:var(--font-h);font-size:.9rem;color:var(--gold-300);line-height:1.2;letter-spacing:.02em}
+.dial-center img{width:90%;max-width:180px}
 .dial-item{position:absolute;top:50%;left:50%;width:136px;transform:translate(-50%,-50%) rotate(var(--a)) translateY(calc(-1*var(--r))) rotate(calc(-1*var(--a)));transition:transform 1.15s cubic-bezier(.22,1,.36,1);text-align:center}
 .dial-item .node{width:96px;height:96px;border-radius:50%;background:linear-gradient(180deg,#fff,var(--cream-100));border:2px solid rgba(158,125,59,.3);box-shadow:var(--sh-card);display:grid;place-items:center;margin:0 auto;overflow:hidden;transition:transform .6s cubic-bezier(.22,1,.36,1),border-color .4s,box-shadow .4s}
 .dial-item .node svg{width:40px;height:40px;color:var(--gold-600)}
@@ -185,9 +184,8 @@ nav.main a:hover::after{transform:scaleX(1)}
   .dial-item .node svg{width:30px;height:30px}
   .dial-item .lbl{display:none}
   .dial-item.active .node{transform:scale(1.26)}
-  .dial-center{width:42%;height:42%}
-  .dial-center img{max-width:72px}
-  .dial-center span{font-size:.66rem}
+  .dial-center{width:44%;height:44%}
+  .dial-center img{max-width:104px;width:92%}
   .dial-caption{display:block}
 }
 
@@ -215,6 +213,8 @@ nav.main a:hover::after{transform:scaleX(1)}
 .legacy h2{color:#fff;font-size:clamp(1.9rem,4vw,2.8rem);margin-bottom:18px}
 .legacy p{color:var(--text-light);margin-bottom:18px;font-size:1.08rem}
 .book-visual{position:relative;display:grid;place-items:center;min-height:360px}
+.book-img{max-width:min(430px,86%);filter:drop-shadow(0 28px 46px rgba(0,0,0,.5));animation:bookFloat 6.5s ease-in-out infinite}
+@keyframes bookFloat{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-14px) rotate(1.5deg)}}
 .book{width:250px;height:340px;background:linear-gradient(135deg,var(--gold-500),var(--gold-600));border-radius:8px 14px 14px 8px;box-shadow:var(--sh-elev),inset 8px 0 0 rgba(0,0,0,.15);display:grid;place-items:center;text-align:center;padding:30px;transform:rotate(-4deg);transition:var(--tr)}
 .book:hover{transform:rotate(0) scale(1.04)}
 .book .b-in{border:2px solid rgba(6,11,25,.35);border-radius:6px;width:100%;height:100%;display:grid;place-items:center;padding:20px}
@@ -487,7 +487,7 @@ footer{background:var(--navy-950);color:var(--text-light);padding:64px 0 28px}
       <a href="#" data-wa-link data-wa-msg="שלום, אשמח לפרטים על עיון ורכישת ספרי ה׳פלא יועץ׳." class="btn btn-gold" style="margin-top:8px">לעיון ורכישת הספרים ←</a>
     </div>
     <div class="book-visual reveal d1">
-      <div class="book"><div class="b-in"><div><h3>פלא<br>יועץ</h3><small>הרב אליעזר פאפו זצ״ל</small></div></div></div>
+      <img src="img/book.png" class="book-img" alt="ספר פלא יועץ — הרב אליעזר פאפו זצ״ל">
     </div>
   </div>
 </section>
@@ -709,7 +709,7 @@ const amenities=[
 const dialEl=document.getElementById('amenGrid');
 dialEl.innerHTML=
   '<div class="dial-ring"></div>'+
-  '<div class="dial-center"><img src="img/logo.png" alt=""><span>מתחם<br>הציון הקדוש</span></div>'+
+  '<div class="dial-center"><img src="img/logo.png" alt="הקרן למורשת פלא יועץ"></div>'+
   amenities.map((a,i)=>`
   <div class="dial-item" data-base="${i*60}" data-name="${a.t}" data-badge="${a.badge||''}" style="--a:${i*60}deg">
     <div class="node">${a.img?`<img src="${a.img}" alt="${a.t}">`:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${AMEN_ICONS[a.s]}</svg>`}</div>
