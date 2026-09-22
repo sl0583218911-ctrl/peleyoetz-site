@@ -160,8 +160,8 @@ nav.main a:hover::after{transform:scaleX(1)}
 /* amenities — rotary dial */
 .dial{position:relative;--dial:min(560px,84vw);--r:calc(var(--dial)*0.385);width:var(--dial);height:var(--dial);margin:40px auto 0;cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none}
 .dial.grabbing{cursor:grabbing}
-.dial-hint{text-align:center;color:var(--gold-600);font-size:.9rem;font-weight:600;margin-top:22px;opacity:.85}
-.dial-hint svg{width:18px;height:18px;vertical-align:-3px}
+.dial-caption{display:none;text-align:center;margin-top:22px;font-family:var(--font-h);font-size:1.55rem;font-weight:700;color:var(--navy-900);min-height:1.4em}
+.cap-sub{display:inline-block;margin-inline-start:8px;background:var(--gold-100);color:var(--gold-600);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:20px;vertical-align:middle;font-family:var(--font-b)}
 .dial-ring{position:absolute;inset:7%;border:2px dashed rgba(158,125,59,.4);border-radius:50%}
 .dial-ring::after{content:"";position:absolute;inset:7%;border:1px solid rgba(158,125,59,.16);border-radius:50%}
 .dial-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:37%;height:37%;border-radius:50%;background:radial-gradient(circle at 40% 35%,var(--navy-800),var(--navy-950));display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;color:#fff;box-shadow:var(--sh-elev),inset 0 0 0 3px rgba(212,175,55,.3);z-index:2;padding:12px}
@@ -178,12 +178,16 @@ nav.main a:hover::after{transform:scaleX(1)}
 .dial-item.active .lbl{color:var(--gold-600);font-size:1.02rem}
 .dial:hover .dial-rotor-state{}
 @media(max-width:620px){
-  .dial{width:100%;height:auto;display:flex;flex-wrap:wrap;justify-content:center;gap:26px 16px;margin-top:26px;cursor:default;touch-action:auto}
-  .dial-ring{display:none}
-  .dial-center{position:static;transform:none;width:100%;height:auto;flex-direction:row;border-radius:var(--r-lg);padding:16px 20px;gap:14px;order:-1;box-shadow:var(--sh-card)}
-  .dial-center img{width:52px}
-  .dial-item{position:static;transform:none;width:130px}
-  .dial-hint{display:none}
+  .dial{--dial:min(340px,86vw);--r:calc(var(--dial)*0.37)}
+  .dial-item{width:calc(var(--dial)*0.32)}
+  .dial-item .node{width:clamp(56px,19vw,74px);height:clamp(56px,19vw,74px)}
+  .dial-item .node svg{width:30px;height:30px}
+  .dial-item .lbl{display:none}
+  .dial-item.active .node{transform:scale(1.26)}
+  .dial-center{width:42%;height:42%}
+  .dial-center img{max-width:72px}
+  .dial-center span{font-size:.66rem}
+  .dial-caption{display:block}
 }
 
 /* gallery */
@@ -440,6 +444,7 @@ footer{background:var(--navy-950);color:var(--text-light);padding:64px 0 28px}
     <p class="sec-sub reveal" style="margin-top:18px">מתחם הציון הקדוש שופץ, הורחב והונגש — כדי שכל מבקר יוכל להתפלל, לטבול ולשהות בכבוד ובנוחות, בכל עונה ובכל שעה.</p>
   </div>
   <div class="container"><div class="dial" id="amenGrid"></div></div>
+  <div class="dial-caption" id="dialCap"></div>
 </section>
 
 <!-- ===== SERVICES ===== -->
@@ -705,7 +710,7 @@ dialEl.innerHTML=
   '<div class="dial-ring"></div>'+
   '<div class="dial-center"><img src="img/logo.png" alt=""><span>מתחם<br>הציון הקדוש</span></div>'+
   amenities.map((a,i)=>`
-  <div class="dial-item" data-base="${i*60}" style="--a:${i*60}deg">
+  <div class="dial-item" data-base="${i*60}" data-name="${a.t}" data-badge="${a.badge||''}" style="--a:${i*60}deg">
     <div class="node">${a.img?`<img src="${a.img}" alt="${a.t}">`:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${AMEN_ICONS[a.s]}</svg>`}</div>
     <div class="lbl">${a.t}${a.badge?`<span class="sub">${a.badge}</span>`:''}</div>
   </div>`).join('');
@@ -713,17 +718,15 @@ dialEl.innerHTML=
 const dialItems=[...dialEl.querySelectorAll('.dial-item')];
 const dialWrap=document.querySelector('.dial');
 let dialRot=0,dialTimer=null,dragging=false,startAng=0,startRot=0;
-const dialMQ=matchMedia('(min-width:621px)');
+const dialCap=document.getElementById('dialCap');
 function itemAng(base){return ((base+dialRot)%360+360)%360}
-function dialActive(){let best=null,bd=1e9;dialItems.forEach(it=>{const a=itemAng(+it.dataset.base);const d=Math.min(a,360-a);if(d<bd){bd=d;best=it}});dialItems.forEach(it=>it.classList.toggle('active',dialMQ.matches&&it===best))}
+function dialActive(){let best=null,bd=1e9;dialItems.forEach(it=>{const a=itemAng(+it.dataset.base);const d=Math.min(a,360-a);if(d<bd){bd=d;best=it}});dialItems.forEach(it=>it.classList.toggle('active',it===best));if(dialCap&&best){dialCap.innerHTML=best.dataset.name+(best.dataset.badge?`<span class="cap-sub">${best.dataset.badge}</span>`:'')}}
 function applyRot(){dialItems.forEach(it=>it.style.setProperty('--a',(+it.dataset.base+dialRot)+'deg'));dialActive()}
-function dialStart(){if(dialTimer||!dialMQ.matches)return;dialTimer=setInterval(()=>{if(dragging)return;dialRot+=60;applyRot()},3600)}
+function dialStart(){if(dialTimer)return;dialTimer=setInterval(()=>{if(dragging)return;dialRot+=60;applyRot()},3600)}
 function dialStop(){clearInterval(dialTimer);dialTimer=null}
-function dialCheck(){if(dialMQ.matches){dialActive();dialStart()}else{dialStop();dialItems.forEach(it=>it.classList.remove('active'))}}
-dialCheck();
-dialMQ.addEventListener&&dialMQ.addEventListener('change',dialCheck);
+dialActive();dialStart();
 function angAt(e){const r=dialWrap.getBoundingClientRect();return Math.atan2(e.clientY-(r.top+r.height/2),e.clientX-(r.left+r.width/2))*180/Math.PI}
-dialWrap.addEventListener('pointerdown',e=>{if(!dialMQ.matches)return;dragging=true;startAng=angAt(e);startRot=dialRot;dialStop();dialWrap.classList.add('grabbing');dialItems.forEach(it=>it.style.transition='none');try{dialWrap.setPointerCapture(e.pointerId)}catch(_){}});
+dialWrap.addEventListener('pointerdown',e=>{dragging=true;startAng=angAt(e);startRot=dialRot;dialStop();dialWrap.classList.add('grabbing');dialItems.forEach(it=>it.style.transition='none');try{dialWrap.setPointerCapture(e.pointerId)}catch(_){}});
 dialWrap.addEventListener('pointermove',e=>{if(!dragging)return;dialRot=startRot+(angAt(e)-startAng);applyRot()});
 function endDrag(){if(!dragging)return;dragging=false;dialWrap.classList.remove('grabbing');dialItems.forEach(it=>it.style.transition='');dialRot=Math.round(dialRot/60)*60;applyRot();dialStart()}
 dialWrap.addEventListener('pointerup',endDrag);
