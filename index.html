@@ -264,6 +264,19 @@ nav.main a:hover::after{transform:scaleX(1)}
 .form-card.kvittel .form-note{color:var(--text-light)}
 .form-submit{width:100%;justify-content:center;margin-top:8px}
 
+/* coming soon — live broadcasts */
+.soon{position:relative;overflow:hidden;padding:82px 0;text-align:center;color:#fff;background:linear-gradient(135deg,var(--navy-900),var(--navy-800))}
+.soon::before{content:"";position:absolute;inset:0;background:url('img/noroot.jpg') center/cover;opacity:.12}
+.soon::after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(11,19,43,.75),rgba(24,36,73,.6))}
+.soon .container{position:relative;z-index:2}
+.soon-badge{display:inline-flex;align-items:center;gap:10px;background:rgba(255,77,77,.14);border:1px solid rgba(255,77,77,.5);color:#ff9a9a;font-weight:700;padding:8px 22px;border-radius:30px;font-size:.9rem;letter-spacing:.08em;margin-bottom:22px}
+.live-dot{width:9px;height:9px;border-radius:50%;background:#ff4d4d;animation:livePulse 1.8s infinite}
+@keyframes livePulse{0%{box-shadow:0 0 0 0 rgba(255,77,77,.6)}70%{box-shadow:0 0 0 11px rgba(255,77,77,0)}100%{box-shadow:0 0 0 0 rgba(255,77,77,0)}}
+.soon h2{font-family:var(--font-h);font-size:clamp(1.7rem,4.2vw,2.7rem);color:#fff;margin-bottom:14px;font-weight:700}
+.soon p{color:var(--text-light);max-width:600px;margin:0 auto;font-size:1.1rem;line-height:1.75}
+.soon .play{width:64px;height:64px;border-radius:50%;background:rgba(212,175,55,.18);border:1.5px solid rgba(212,175,55,.5);display:grid;place-items:center;margin:0 auto 22px;color:var(--gold-300)}
+.soon .play svg{width:26px;height:26px;margin-inline-start:4px}
+
 /* footer */
 footer{background:var(--navy-950);color:var(--text-light);padding:64px 0 28px}
 .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:44px;margin-bottom:40px}
@@ -557,6 +570,16 @@ footer{background:var(--navy-950);color:var(--text-light);padding:64px 0 28px}
         <p class="form-note">🔒 הפנייה נשלחת ישירות לוואטסאפ של הקרן — ללא שמירת פרטים</p>
       </form>
     </div>
+  </div>
+</section>
+
+<!-- ===== COMING SOON ===== -->
+<section class="soon">
+  <div class="container">
+    <div class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+    <span class="soon-badge"><span class="live-dot"></span>בקרוב · LIVE</span>
+    <h2>שידורים חיים ממעמדי תפילה בציון הקדוש</h2>
+    <p>בקרוב תוכלו להצטרף למעמדי התפילה וההתעוררות בציון בעל ה״פלא יועץ״ — בשידור חי, מכל מקום בעולם.</p>
   </div>
 </section>
 
