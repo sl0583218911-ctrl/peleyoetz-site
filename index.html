@@ -171,8 +171,8 @@ nav.main a:hover::after{transform:scaleX(1)}
 .dial-ring{position:absolute;inset:4%;border-radius:50%;border:1.5px solid rgba(158,125,59,.3)}
 .dial-ring::before{content:"";position:absolute;inset:-1px;border-radius:50%;background:repeating-conic-gradient(from 0deg,rgba(158,125,59,.55) 0 1deg,transparent 1deg 15deg);-webkit-mask:radial-gradient(transparent 89%,#000 90%);mask:radial-gradient(transparent 89%,#000 90%)}
 .dial-ring::after{content:"";position:absolute;inset:12%;border:1px solid rgba(158,125,59,.14);border-radius:50%}
-.dial-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:37%;height:37%;border-radius:50%;background:radial-gradient(circle at 40% 35%,var(--navy-800),var(--navy-950));display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;color:#fff;box-shadow:var(--sh-elev),inset 0 0 0 3px rgba(212,175,55,.3);z-index:2;padding:12px}
-.dial-center img{width:90%;max-width:180px}
+.dial-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:41%;height:41%;border-radius:50%;background:radial-gradient(circle at 40% 35%,var(--navy-800),var(--navy-950));display:flex;align-items:center;justify-content:center;color:#fff;box-shadow:var(--sh-elev);z-index:2;padding:6px;overflow:hidden}
+.dial-center img{width:100%;height:100%;object-fit:contain;max-width:none}
 .dial-item{position:absolute;top:50%;left:50%;width:136px;transform:translate(-50%,-50%) rotate(var(--a)) translateY(calc(-1*var(--r))) rotate(calc(-1*var(--a)));transition:transform 1.15s cubic-bezier(.22,1,.36,1);text-align:center}
 .dial-item .node{width:96px;height:96px;border-radius:50%;background:linear-gradient(180deg,#fff,var(--cream-100));border:2px solid rgba(158,125,59,.3);box-shadow:var(--sh-card);display:grid;place-items:center;margin:0 auto;overflow:hidden;transition:transform .6s cubic-bezier(.22,1,.36,1),border-color .4s,box-shadow .4s}
 .dial-item .node svg{width:40px;height:40px;color:var(--gold-600)}
@@ -412,8 +412,8 @@ footer{background:var(--navy-950);color:var(--text-light);padding:64px 0 28px}
     </div>
     <div class="hero-photo">
       <div class="arch-photo" id="heroSlides">
-        <img src="img/hero-a.jpg" class="hslide active" alt="פנים הציון הקדוש של בעל הפלא יועץ">
-        <img src="img/hero-b.jpg" class="hslide" alt="הדמיית מתחם הציון החדש">
+        <img src="img/hero-a.jpg" class="hslide active" style="object-position:center 50%" alt="פנים הציון הקדוש של בעל הפלא יועץ">
+        <img src="img/hero-b.jpg" class="hslide" style="object-fit:contain;background:linear-gradient(180deg,var(--navy-800),var(--navy-950))" alt="הדמיית מתחם הציון החדש">
         <span class="hbadge" id="heroBadge">הציון כיום</span>
       </div>
     </div>
@@ -736,14 +736,14 @@ const amenities=[
   {t:'הציון הקדוש',s:'dome',badge:'ממוזג ומחומם',img:'img/svc-tzion.jpg',pos:'center 32%'},
   {t:'מתחם כהנים',s:'gate',img:'img/svc-kohanim.png'},
   {t:'מקווה טהרה',s:'water',badge:'מהודר',img:'img/svc-mikveh.png'},
-  {t:'בית כנסת',s:'shul',img:null},
-  {t:'הכנסת אורחים',s:'home',img:null},
+  {t:'בית כנסת',s:'shul',img:'img/svc-shul.jpg'},
+  {t:'הכנסת אורחים',s:'home',img:'img/svc-hachnasa.jpg'},
   {t:'שתייה חמה/קרה',s:'cup',badge:'24 שעות',img:'img/svc-drinks.png'}
 ];
 const dialEl=document.getElementById('amenGrid');
 dialEl.innerHTML=
   '<div class="dial-ring"></div>'+
-  '<div class="dial-center"><img src="img/logo.png" alt="הקרן למורשת פלא יועץ"></div>'+
+  '<div class="dial-center"><img src="img/logo-tight.png" alt="הקרן למורשת פלא יועץ"></div>'+
   amenities.map((a,i)=>`
   <div class="dial-item" data-base="${i*60}" data-name="${a.t}" data-badge="${a.badge||''}" style="--a:${i*60}deg">
     <div class="node">${a.img?`<img src="${a.img}" alt="${a.t}"${a.pos?` style="object-position:${a.pos}"`:''}>`:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${AMEN_ICONS[a.s]}</svg>`}</div>
