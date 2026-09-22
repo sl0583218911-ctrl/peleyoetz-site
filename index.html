@@ -91,6 +91,9 @@ nav.main a:hover::after{transform:scaleX(1)}
 .arch-photo{position:relative;border-radius:clamp(150px,27vw,270px) clamp(150px,27vw,270px) var(--r-lg) var(--r-lg);overflow:hidden;box-shadow:var(--sh-elev);aspect-ratio:4/5;max-width:430px;margin-inline:auto}
 .arch-photo::before{content:"";position:absolute;inset:11px;border:2px solid rgba(212,175,55,.65);border-radius:clamp(140px,25vw,255px) clamp(140px,25vw,255px) var(--r-md) var(--r-md);z-index:2;pointer-events:none}
 .arch-photo img{width:100%;height:100%;object-fit:cover}
+.arch-photo .hslide{position:absolute;inset:0;opacity:0;transition:opacity 1.1s ease;z-index:0}
+.arch-photo .hslide.active{opacity:1}
+.arch-photo .hbadge{position:absolute;bottom:14px;inset-inline:0;text-align:center;z-index:3;color:#fff;font-size:.8rem;font-weight:600;letter-spacing:.02em;text-shadow:0 1px 6px rgba(0,0,0,.6);pointer-events:none;opacity:.9}
 .hero-photo::after{content:"";position:absolute;inset-block:26px;inset-inline-start:-6%;width:62%;border:1.5px solid var(--gold-400);border-radius:clamp(150px,27vw,270px) clamp(150px,27vw,270px) var(--r-lg) var(--r-lg);z-index:-1;opacity:.45}
 .scroll-hint{position:absolute;bottom:24px;inset-inline:0;text-align:center;z-index:2;color:var(--gold-600);font-size:1.6rem;animation:bounce 2s infinite}
 @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(10px)}}
@@ -408,7 +411,11 @@ footer{background:var(--navy-950);color:var(--text-light);padding:64px 0 28px}
       </div>
     </div>
     <div class="hero-photo">
-      <div class="arch-photo"><img src="img/noroot.jpg" alt="הציון הקדוש של בעל הפלא יועץ בסיליסטרה"></div>
+      <div class="arch-photo" id="heroSlides">
+        <img src="img/hero-a.jpg" class="hslide active" alt="פנים הציון הקדוש של בעל הפלא יועץ">
+        <img src="img/hero-b.jpg" class="hslide" alt="הדמיית מתחם הציון החדש">
+        <span class="hbadge" id="heroBadge">הציון כיום</span>
+      </div>
     </div>
   </div>
   <a href="#marquee" class="scroll-hint" aria-label="גלול למטה">↓</a>
@@ -425,7 +432,7 @@ footer{background:var(--navy-950);color:var(--text-light);padding:64px 0 28px}
   <div class="container about-grid">
     <div class="about-img reveal">
       <div class="about-frame"></div>
-      <img src="img/unnamed9.jpg" alt="הציון הקדוש">
+      <img src="img/about-tzion.jpg" alt="שער הכניסה לציון הקדוש — ברוכים הבאים">
     </div>
     <div class="about-text reveal d1">
       <span class="eyebrow">מוקד תפילה עולמי</span>
@@ -761,6 +768,17 @@ dialWrap.addEventListener('pointerup',endDrag);
 dialWrap.addEventListener('pointercancel',endDrag);
 dialWrap.addEventListener('mouseenter',()=>{if(!dragging)dialStop()});
 dialWrap.addEventListener('mouseleave',()=>{if(!dragging)dialStart()});
+
+// hero slideshow — auto transition + on hover/touch
+(function(){
+  const hs=document.getElementById('heroSlides');if(!hs)return;
+  const slides=[...hs.querySelectorAll('.hslide')];const badge=document.getElementById('heroBadge');
+  const caps=['הציון כיום','הדמיית הפיתוח'];let hi=0;
+  function show(n){slides[hi].classList.remove('active');hi=(n+slides.length)%slides.length;slides[hi].classList.add('active');if(badge)badge.textContent=caps[hi]||''}
+  setInterval(()=>show(hi+1),4500);
+  hs.addEventListener('pointerenter',()=>show(hi+1));
+  hs.addEventListener('pointerdown',()=>show(hi+1));
+})();
 
 // gallery (עם פריטים גדולים לעניין ויזואלי)
 const spanClass = ['big','','','wide','','','','wide'];

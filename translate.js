@@ -194,6 +194,12 @@ const map=[
 ["name=\"נושא\"","name=\"Subject\""],
 ["name=\"הודעה\"","name=\"Message\""],
 ["name=\"שם\"","name=\"Name\""],
+// hero slideshow + about image
+["פנים הציון הקדוש של בעל הפלא יועץ","Interior of the holy resting place of the Pele Yoetz"],
+["הדמיית מתחם הציון החדש","Rendering of the new site complex"],
+["שער הכניסה לציון הקדוש — ברוכים הבאים","The entrance gate — Welcome to the holy site"],
+["הציון כיום","The site today"],
+["הדמיית הפיתוח","Development rendering"],
 // missed visible bits
 ["ישראל בן שרה","Yisrael ben Sarah"],
 ["הקודם","Previous"],
