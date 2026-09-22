@@ -157,6 +157,16 @@ nav.main a:hover::after{transform:scaleX(1)}
 .caro-arrow.next{inset-inline-start:-8px}
 @media(max-width:700px){.caro-arrow{display:none}.svc-slide{flex-basis:80%}}
 
+/* amenities */
+.amen-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.amen-card{background:linear-gradient(180deg,#fff,var(--cream-100));border:1px solid rgba(158,125,59,.16);border-radius:var(--r-lg);padding:30px 26px;display:flex;gap:18px;align-items:flex-start;box-shadow:var(--sh-soft);transition:var(--tr);position:relative}
+.amen-card:hover{transform:translateY(-6px);box-shadow:var(--sh-card);border-color:var(--gold-400)}
+.amen-card .ico{width:58px;height:58px;flex-shrink:0;border-radius:50%;background:radial-gradient(circle at 30% 30%,var(--gold-100),var(--cream-50));display:grid;place-items:center;box-shadow:inset 0 0 0 1px rgba(212,175,55,.4)}
+.amen-card .ico svg{width:28px;height:28px;color:var(--gold-600)}
+.amen-card h3{font-size:1.2rem;color:var(--navy-900);margin-bottom:5px}
+.amen-card p{color:var(--text-muted);font-size:.97rem;line-height:1.65}
+.amen-card .badge2{display:inline-block;margin-top:10px;background:var(--gold-100);color:var(--gold-600);font-size:.74rem;font-weight:700;padding:4px 13px;border-radius:20px;letter-spacing:.02em}
+
 /* gallery */
 .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:16px}
 .g-item{position:relative;overflow:hidden;border-radius:var(--r-md);cursor:pointer;box-shadow:var(--sh-soft)}
@@ -301,7 +311,7 @@ footer{background:var(--navy-950);color:var(--text-light);padding:64px 0 28px}
   .hero h1{align-items:center}
   .hero-photo{order:-1}
   .arch-photo{max-width:320px}
-  .svc-grid,.tiers-grid{grid-template-columns:1fr 1fr}
+  .tiers-grid,.amen-grid{grid-template-columns:1fr 1fr}
   .counter-grid{grid-template-columns:1fr 1fr;gap:32px 20px}
   .counter-item:nth-child(3){border:none}
   .gallery-grid{grid-template-columns:1fr 1fr;grid-auto-rows:160px}
@@ -309,7 +319,7 @@ footer{background:var(--navy-950);color:var(--text-light);padding:64px 0 28px}
   .foot-map-row{grid-template-columns:1fr;gap:22px}
 }
 @media(max-width:560px){
-  .svc-grid,.tiers-grid,.fgrid{grid-template-columns:1fr}
+  .tiers-grid,.fgrid,.amen-grid{grid-template-columns:1fr}
   .counter-grid{grid-template-columns:1fr 1fr}
   .form-card{padding:26px}
   .hero-cta{flex-direction:column;align-items:stretch}
@@ -395,6 +405,18 @@ footer{background:var(--navy-950);color:var(--text-light);padding:64px 0 28px}
       <div class="counter-item reveal d3"><div class="num"><span class="count" data-to="200">0</span><span class="plus">+</span></div><div class="lbl">שנות מורשת</div></div>
     </div>
   </div>
+</section>
+
+<!-- ===== AMENITIES ===== -->
+<section class="sec" id="amenities" style="background:var(--cream-50)">
+  <span class="watermark wr">ק</span>
+  <div class="container center">
+    <span class="eyebrow reveal">מתחם הציון</span>
+    <h2 class="sec-title reveal">מה מחכה לכם במקום</h2>
+    <div class="flourish reveal"><i></i><b>◆</b><i></i></div>
+    <p class="sec-sub reveal" style="margin-top:18px">מתחם הציון הקדוש שופץ, הורחב והונגש — כדי שכל מבקר יוכל להתפלל, לטבול ולשהות בכבוד ובנוחות, בכל עונה ובכל שעה.</p>
+  </div>
+  <div class="container amen-grid reveal" id="amenGrid" style="margin-top:48px"></div>
 </section>
 
 <!-- ===== SERVICES ===== -->
@@ -634,6 +656,29 @@ const _caro=document.getElementById('svcCarousel');
 const _amt=()=>Math.min(_caro.clientWidth*0.8,380);
 document.getElementById('svcNext').onclick=()=>_caro.scrollBy({left:-_amt(),behavior:'smooth'});
 document.getElementById('svcPrev').onclick=()=>_caro.scrollBy({left:_amt(),behavior:'smooth'});
+
+// amenities (מתקני המתחם)
+const AMEN_ICONS={
+  dome:'<path d="M4 20V11a8 8 0 0 1 16 0v9"/><path d="M3 20h18"/><path d="M10 20v-5a2 2 0 0 1 4 0v5"/>',
+  gate:'<path d="M5 21V8a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v13"/><path d="M4 21h16"/><path d="M9 21v-6"/><path d="M15 21v-6"/>',
+  water:'<path d="M4 9c2 0 2 1.5 4 1.5S10 9 12 9s2 1.5 4 1.5S18 9 20 9"/><path d="M4 14c2 0 2 1.5 4 1.5S10 14 12 14s2 1.5 4 1.5S18 14 20 14"/><path d="M4 19c2 0 2 1 4 1s2-1 4-1 2 1 4 1 2-1 4-1"/>',
+  shul:'<path d="M6 20V6a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v14"/><path d="M13 20V6a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v14"/><path d="M4 20h16"/>',
+  home:'<path d="M4 11l8-6 8 6"/><path d="M6 10v9h12v-9"/><path d="M10 19v-5h4v5"/>',
+  cup:'<path d="M5 8h11v6a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4V8Z"/><path d="M16 9h2a2 2 0 0 1 0 4h-2"/><path d="M8 2.5v2M11 2.5v2"/>'
+};
+const amenities=[
+  {t:'הציון הקדוש',d:'בחדר סגור, ממוזג ומחומם — נגיש ונוח בכל עונה.',s:'dome',badge:'ממוזג ומחומם'},
+  {t:'מתחם כהנים',d:'אזור ייעודי המאפשר גם לכהנים להתפלל בסמוך לציון.',s:'gate'},
+  {t:'מקווה טהרה מהודר',d:'מקווה טהרה מפואר ומוקפד לרשות המבקרים.',s:'water'},
+  {t:'בית כנסת',d:'בית כנסת במקום לתפילה בציבור לאורך היום.',s:'shul'},
+  {t:'הכנסת אורחים',d:'קבלת פנים חמה וליווי לכל מבקר ולכל קבוצה.',s:'home'},
+  {t:'שתייה חמה וקרה',d:'עמדת שתייה חמה וקרה זמינה — מסביב לשעון.',s:'cup',badge:'24 שעות'}
+];
+document.getElementById('amenGrid').innerHTML=amenities.map((a,i)=>`
+  <div class="amen-card reveal ${i%3===1?'d1':i%3===2?'d2':''}">
+    <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${AMEN_ICONS[a.s]}</svg></div>
+    <div><h3>${a.t}</h3><p>${a.d}</p>${a.badge?`<span class="badge2">${a.badge}</span>`:''}</div>
+  </div>`).join('');
 
 // gallery (עם פריטים גדולים לעניין ויזואלי)
 const spanClass = ['big','','','wide','','','','wide'];
