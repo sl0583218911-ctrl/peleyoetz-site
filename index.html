@@ -162,8 +162,9 @@ nav.main a:hover::after{transform:scaleX(1)}
 .dial.grabbing{cursor:grabbing}
 .dial-caption{display:none;text-align:center;margin-top:22px;font-family:var(--font-h);font-size:1.55rem;font-weight:700;color:var(--navy-900);min-height:1.4em}
 .cap-sub{display:inline-block;margin-inline-start:8px;background:var(--gold-100);color:var(--gold-600);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:20px;vertical-align:middle;font-family:var(--font-b)}
-.dial-ring{position:absolute;inset:7%;border:2px dashed rgba(158,125,59,.4);border-radius:50%}
-.dial-ring::after{content:"";position:absolute;inset:7%;border:1px solid rgba(158,125,59,.16);border-radius:50%}
+.dial-ring{position:absolute;inset:4%;border-radius:50%;border:1.5px solid rgba(158,125,59,.3)}
+.dial-ring::before{content:"";position:absolute;inset:-1px;border-radius:50%;background:repeating-conic-gradient(from 0deg,rgba(158,125,59,.55) 0 1deg,transparent 1deg 15deg);-webkit-mask:radial-gradient(transparent 89%,#000 90%);mask:radial-gradient(transparent 89%,#000 90%)}
+.dial-ring::after{content:"";position:absolute;inset:12%;border:1px solid rgba(158,125,59,.14);border-radius:50%}
 .dial-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:37%;height:37%;border-radius:50%;background:radial-gradient(circle at 40% 35%,var(--navy-800),var(--navy-950));display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;color:#fff;box-shadow:var(--sh-elev),inset 0 0 0 3px rgba(212,175,55,.3);z-index:2;padding:12px}
 .dial-center img{width:66%;max-width:120px}
 .dial-center span{font-family:var(--font-h);font-size:.9rem;color:var(--gold-300);line-height:1.2;letter-spacing:.02em}
