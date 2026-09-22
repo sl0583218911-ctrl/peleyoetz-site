@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>הקרן למורשת פלא יועץ | הציון הקדוש בסיליסטרה, בולגריה</title>
+<meta name="description" content="הקרן למורשת פלא יועץ — הציון הקדוש של הרב אליעזר פאפו זצ״ל בסיליסטרה, בולגריה. תכנון ביקור, שליחת שמות לתפילה, מורשת הספר, ושותפות בהחזקת הציון.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500;600;700;900&family=IBM+Plex+Sans+Hebrew:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy-950:#060B19; --navy-900:#0B132B; --navy-850:#101935; --navy-800:#182449;
+  --gold-600:#9E7D3B; --gold-500:#C5A059; --gold-400:#D4AF37; --gold-300:#E2C46C; --gold-100:#FAF4E5;
+  --cream-100:#FAF8F5; --cream-50:#F3EFEA; --white:#fff;
+  --text-dark:#1C202B; --text-muted:#5A6275; --text-light:#E0E4EC;
+  --font-h:'Frank Ruhl Libre',serif; --font-b:'IBM Plex Sans Hebrew',sans-serif;
+  --max:1240px; --sp:96px;
+  --r-sm:6px; --r-md:12px; --r-lg:20px; --r-xl:32px;
+  --sh-soft:0 4px 20px rgba(10,17,40,.06); --sh-card:0 10px 34px rgba(10,17,40,.10); --sh-elev:0 22px 55px rgba(10,17,40,.18);
+  --tr:.35s cubic-bezier(.16,1,.3,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{font-family:var(--font-b);color:var(--text-dark);line-height:1.75;overflow-x:hidden;-webkit-font-smoothing:antialiased;
+  background:
+    radial-gradient(1200px 620px at 100% -4%,rgba(212,175,55,.07),transparent 60%),
+    radial-gradient(1000px 560px at 0% 102%,rgba(24,36,73,.05),transparent 62%),
+    var(--cream-100)}
+h1,h2,h3,h4{font-family:var(--font-h);line-height:1.2;font-weight:700}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.container{max-width:var(--max);margin:0 auto;padding:0 24px}
+.sec{padding:var(--sp) 0}
+.eyebrow{display:inline-block;font-size:.84rem;letter-spacing:.28em;font-weight:600;color:var(--gold-600);text-transform:uppercase;margin-bottom:16px}
+.center .eyebrow::before,.center .eyebrow::after{content:"";display:inline-block;width:32px;height:1px;background:var(--gold-400);vertical-align:middle;opacity:.75}
+.center .eyebrow::before{margin-inline-end:15px}
+.center .eyebrow::after{margin-inline-start:15px}
+.sec-title{font-size:clamp(2.1rem,4.5vw,3.3rem);color:var(--navy-900);margin-bottom:16px;letter-spacing:-.01em}
+.sec-sub{font-size:1.08rem;color:var(--text-muted);max-width:640px;margin:0 auto}
+.center{text-align:center}
+.divider{width:64px;height:2px;background:linear-gradient(90deg,transparent,var(--gold-400),transparent);margin:22px auto}
+.ornament{color:var(--gold-400);font-size:1.4rem;letter-spacing:.4em}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-b);font-weight:600;font-size:1rem;padding:15px 34px;border-radius:var(--r-md);cursor:pointer;border:none;transition:var(--tr);position:relative}
+.btn-gold{background:linear-gradient(135deg,var(--gold-400),var(--gold-500));color:var(--navy-950);box-shadow:0 8px 24px rgba(212,175,55,.32)}
+.btn-gold:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(212,175,55,.42)}
+.btn-outline{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,.4)}
+.btn-outline:hover{background:rgba(255,255,255,.1);border-color:var(--gold-400);color:var(--gold-300)}
+.btn-navy{background:var(--navy-900);color:var(--white)}
+.btn-navy:hover{background:var(--navy-800);transform:translateY(-3px)}
+.btn-wa{background:#25D366;color:#fff;box-shadow:0 8px 22px rgba(37,211,102,.32)}
+.btn-wa:hover{transform:translateY(-3px);background:#1ebe5a}
+
+/* header */
+header{position:fixed;top:0;inset-inline:0;z-index:100;transition:var(--tr)}
+header .bar{display:flex;align-items:center;justify-content:space-between;padding:10px 24px;max-width:var(--max);margin:0 auto}
+header.scrolled{background:rgba(250,248,245,.95);backdrop-filter:blur(12px);box-shadow:0 4px 24px rgba(10,17,40,.10)}
+.logo{display:flex;align-items:center}
+.logo img{height:108px;width:auto;transition:var(--tr);filter:drop-shadow(0 4px 12px rgba(10,17,40,.18))}
+header.scrolled .logo img{height:78px}
+nav.main{display:flex;align-items:center;gap:30px}
+nav.main a{color:#2A3247;font-size:.98rem;font-weight:500;position:relative;padding:6px 0;transition:color .2s}
+nav.main a::after{content:"";position:absolute;bottom:0;inset-inline:0;height:2px;background:var(--gold-400);transform:scaleX(0);transition:transform .28s}
+nav.main a:hover{color:var(--gold-600)}
+nav.main a:hover::after{transform:scaleX(1)}
+.nav-cta{padding:11px 24px !important;font-size:.95rem !important;color:var(--navy-950) !important}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
+.burger span{width:26px;height:2.5px;background:var(--navy-900);border-radius:2px;transition:.3s}
+
+/* hero — light split */
+.hero{position:relative;min-height:94vh;display:flex;align-items:center;padding:130px 0 70px;overflow:hidden;
+  background:radial-gradient(1100px 760px at 82% 6%,var(--gold-100),transparent 52%),linear-gradient(180deg,var(--cream-100),var(--cream-50))}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;position:relative;z-index:2}
+.hero-wm{position:absolute;top:50%;inset-inline-start:-6%;transform:translateY(-50%);height:130%;width:auto;opacity:.06;z-index:0;pointer-events:none;user-select:none}
+.hero-text{animation:fadeUp 1s .1s both}
+.hero-text .eyebrow{color:var(--gold-600)}
+.hero h1{display:flex;flex-direction:column;line-height:1;margin-bottom:22px}
+.hero h1 .pre{font-family:var(--font-h);font-size:clamp(1.35rem,3vw,2.05rem);font-weight:600;color:var(--navy-800);margin-bottom:10px}
+.hero h1 .big{font-family:var(--font-h);font-size:clamp(3.4rem,8.5vw,6.2rem);font-weight:900;color:var(--navy-900);letter-spacing:-.015em;line-height:.92;text-shadow:0 3px 20px rgba(24,36,73,.08)}
+.hero h1 .post{font-family:var(--font-h);font-size:clamp(1.6rem,3.6vw,2.5rem);font-weight:700;color:var(--gold-600);margin-top:12px}
+.hero .quote{font-size:1.12rem;color:var(--text-muted);max-width:520px;margin-bottom:32px;line-height:1.85}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+.btn-ghost{background:#fff;color:var(--navy-900);border:1.5px solid rgba(24,36,73,.2);box-shadow:var(--sh-soft)}
+.btn-ghost:hover{border-color:var(--gold-500);color:var(--gold-600);transform:translateY(-3px)}
+.hero-photo{position:relative;animation:fadeUp 1s .3s both}
+.arch-photo{position:relative;border-radius:clamp(150px,27vw,270px) clamp(150px,27vw,270px) var(--r-lg) var(--r-lg);overflow:hidden;box-shadow:var(--sh-elev);aspect-ratio:4/5;max-width:430px;margin-inline:auto}
+.arch-photo::before{content:"";position:absolute;inset:11px;border:2px solid rgba(212,175,55,.65);border-radius:clamp(140px,25vw,255px) clamp(140px,25vw,255px) var(--r-md) var(--r-md);z-index:2;pointer-events:none}
+.arch-photo img{width:100%;height:100%;object-fit:cover}
+.hero-photo::after{content:"";position:absolute;inset-block:26px;inset-inline-start:-6%;width:62%;border:1.5px solid var(--gold-400);border-radius:clamp(150px,27vw,270px) clamp(150px,27vw,270px) var(--r-lg) var(--r-lg);z-index:-1;opacity:.45}
+.scroll-hint{position:absolute;bottom:24px;inset-inline:0;text-align:center;z-index:2;color:var(--gold-600);font-size:1.6rem;animation:bounce 2s infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(10px)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+
+/* marquee services */
+.marquee{background:linear-gradient(180deg,var(--white),var(--cream-50));padding:20px 0;overflow:hidden;position:relative;border-block:1px solid rgba(158,125,59,.16)}
+.marquee-track{display:flex;gap:52px;width:max-content;animation:scroll-x 34s linear infinite}
+.marquee:hover .marquee-track{animation-play-state:paused}
+@keyframes scroll-x{from{transform:translateX(0)}to{transform:translateX(50%)}}
+.m-item{display:flex;align-items:center;gap:12px;color:var(--navy-800);font-size:1.06rem;font-weight:500;white-space:nowrap;letter-spacing:.01em}
+.m-item svg{width:25px;height:25px;color:var(--gold-500);flex-shrink:0}
+.m-item .dot{color:var(--gold-400);font-size:.7rem}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:64px;align-items:center}
+.about-img{position:relative;border-radius:clamp(120px,22vw,220px) clamp(120px,22vw,220px) var(--r-lg) var(--r-lg);overflow:hidden;box-shadow:var(--sh-elev)}
+.about-img::before{content:"";position:absolute;inset:8px;border:1.5px solid rgba(212,175,55,.55);border-radius:clamp(110px,20vw,200px) clamp(110px,20vw,200px) var(--r-md) var(--r-md);z-index:2;pointer-events:none}
+.about-img img{width:100%;height:100%;object-fit:cover;min-height:420px;transition:transform .8s}
+.about-img:hover img{transform:scale(1.05)}
+.about-frame{position:absolute;inset-block:18px;inset-inline-start:-18px;width:70px;border:2px solid var(--gold-400);border-inline-end:none;border-radius:var(--r-lg) 0 0 var(--r-lg);z-index:-1}
+.about-text p{color:var(--text-muted);margin-bottom:18px;font-size:1.06rem}
+.about-text .lead-p{font-size:1.16rem;color:var(--text-dark);font-weight:500}
+.read-more-txt{max-height:0;overflow:hidden;transition:max-height .6s ease}
+.read-more-txt.open{max-height:400px}
+.link-more{color:var(--gold-600);font-weight:600;cursor:pointer;display:inline-flex;gap:6px;align-items:center;background:none;border:none;font-family:var(--font-b);font-size:1rem}
+
+/* counters */
+.counters{background:linear-gradient(180deg,var(--white),var(--cream-100));color:var(--navy-900);position:relative;overflow:hidden;border-block:1px solid rgba(158,125,59,.12)}
+.counters .container{position:relative;z-index:2}
+.counter-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;text-align:center}
+.counter-item .num{font-family:var(--font-h);font-size:clamp(2.6rem,5.5vw,3.8rem);font-weight:900;color:var(--navy-900);line-height:1}
+.counter-item .plus{color:var(--gold-500)}
+.counter-item .lbl{margin-top:12px;color:var(--text-muted);font-size:1.04rem;font-weight:500;letter-spacing:.01em}
+.counter-item{padding:14px 20px;border-inline-start:1px solid rgba(158,125,59,.22);position:relative}
+.counter-item::before{content:"";position:absolute;top:0;inset-inline-start:-1px;width:1px;height:34%;background:var(--gold-400)}
+.counter-item:first-child{border:none}
+.counter-item:first-child::before{display:none}
+
+/* services carousel */
+.svc-ico{width:66px;height:66px;border-radius:50%;background:radial-gradient(circle at 30% 30%,var(--gold-100),var(--cream-50));display:grid;place-items:center;box-shadow:inset 0 0 0 1px rgba(212,175,55,.4),0 6px 16px rgba(158,125,59,.12)}
+.svc-ico svg{width:31px;height:31px;color:var(--gold-600)}
+.svc-carousel-wrap{position:relative;max-width:var(--max);margin:48px auto 0;padding:0 26px}
+.svc-carousel{display:flex;gap:26px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:10px 2px 26px;scrollbar-width:none}
+.svc-carousel::-webkit-scrollbar{display:none}
+.svc-slide{flex:0 0 clamp(280px,31%,352px);scroll-snap-align:start;background:linear-gradient(180deg,#fff,var(--cream-100));border-radius:var(--r-lg);border:1px solid rgba(158,125,59,.16);box-shadow:var(--sh-soft);overflow:hidden;transition:var(--tr);display:flex;flex-direction:column}
+.svc-slide:hover{transform:translateY(-8px);box-shadow:var(--sh-card);border-color:var(--gold-400)}
+.svc-photo{position:relative;height:210px;overflow:hidden;background:radial-gradient(circle at 50% 35%,var(--gold-100),var(--cream-50))}
+.svc-photo img{width:100%;height:100%;object-fit:cover;transition:transform .8s}
+.svc-slide:hover .svc-photo img{transform:scale(1.08)}
+.svc-photo .ph{position:absolute;inset:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--gold-600);text-align:center;padding:16px;border:2px dashed rgba(158,125,59,.45);border-radius:var(--r-md)}
+.svc-photo .ph svg{width:40px;height:40px;opacity:.55}
+.svc-photo .ph b{font-size:.94rem;font-weight:600;color:var(--navy-800)}
+.svc-photo .ph small{font-size:.78rem;color:var(--text-muted)}
+.svc-photo .tag{position:absolute;top:14px;inset-inline-end:14px;background:rgba(11,19,43,.82);color:#fff;font-size:.76rem;font-weight:600;padding:6px 13px;border-radius:20px;backdrop-filter:blur(4px);z-index:2}
+.svc-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(11,19,43,.28));pointer-events:none}
+.svc-slide .svc-ico{width:56px;height:56px;margin:-38px 26px 0;position:relative;z-index:3;background:#fff}
+.svc-body{padding:14px 26px 30px;display:flex;flex-direction:column;flex:1}
+.svc-body h3{font-size:1.32rem;color:var(--navy-900);margin-bottom:8px}
+.svc-body p{color:var(--text-muted);font-size:1rem;margin-bottom:18px;flex:1}
+.svc-link{color:var(--gold-600);font-weight:600;display:inline-flex;gap:6px;align-items:center;font-size:.97rem}
+.svc-link svg{width:16px;transition:transform .25s}
+.svc-slide:hover .svc-link svg{transform:translateX(-5px)}
+.caro-arrow{position:absolute;top:44%;transform:translateY(-50%);width:50px;height:50px;border-radius:50%;background:#fff;border:1px solid rgba(158,125,59,.3);box-shadow:var(--sh-card);color:var(--navy-900);font-size:1.7rem;line-height:1;cursor:pointer;z-index:5;display:grid;place-items:center;transition:var(--tr)}
+.caro-arrow:hover{background:var(--gold-400);color:var(--navy-950);border-color:var(--gold-400);transform:translateY(-50%) scale(1.08)}
+.caro-arrow.prev{inset-inline-end:-8px}
+.caro-arrow.next{inset-inline-start:-8px}
+@media(max-width:700px){.caro-arrow{display:none}.svc-slide{flex-basis:80%}}
+
+/* gallery */
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:16px}
+.g-item{position:relative;overflow:hidden;border-radius:var(--r-md);cursor:pointer;box-shadow:var(--sh-soft)}
+.g-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.g-item::after{content:"🔍";position:absolute;inset:0;display:grid;place-items:center;background:rgba(11,19,43,.55);color:#fff;font-size:1.6rem;opacity:0;transition:opacity .3s}
+.g-item:hover img{transform:scale(1.08)}
+.g-item:hover::after{opacity:1}
+.g-item.big{grid-column:span 2;grid-row:span 2}
+.g-item.wide{grid-column:span 2}
+.lightbox{position:fixed;inset:0;background:rgba(6,11,25,.94);z-index:1000;display:none;place-items:center;padding:30px}
+.lightbox.open{display:grid}
+.lightbox img{max-width:92vw;max-height:86vh;border-radius:var(--r-md);box-shadow:var(--sh-elev)}
+.lb-close{position:absolute;top:22px;inset-inline-end:28px;color:#fff;font-size:2.4rem;cursor:pointer;line-height:1}
+.lb-nav{position:absolute;top:50%;transform:translateY(-50%);color:#fff;font-size:3rem;cursor:pointer;padding:0 22px;opacity:.7;transition:opacity .2s;user-select:none}
+.lb-nav:hover{opacity:1}
+.lb-prev{inset-inline-end:6px}.lb-next{inset-inline-start:6px}
+
+/* legacy / book */
+.legacy{background:linear-gradient(135deg,var(--navy-900),var(--navy-800));color:#fff;position:relative;overflow:hidden}
+.legacy .container{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;position:relative;z-index:2}
+.legacy .eyebrow{color:var(--gold-300)}
+.legacy h2{color:#fff;font-size:clamp(1.9rem,4vw,2.8rem);margin-bottom:18px}
+.legacy p{color:var(--text-light);margin-bottom:18px;font-size:1.08rem}
+.book-visual{position:relative;display:grid;place-items:center;min-height:360px}
+.book{width:250px;height:340px;background:linear-gradient(135deg,var(--gold-500),var(--gold-600));border-radius:8px 14px 14px 8px;box-shadow:var(--sh-elev),inset 8px 0 0 rgba(0,0,0,.15);display:grid;place-items:center;text-align:center;padding:30px;transform:rotate(-4deg);transition:var(--tr)}
+.book:hover{transform:rotate(0) scale(1.04)}
+.book .b-in{border:2px solid rgba(6,11,25,.35);border-radius:6px;width:100%;height:100%;display:grid;place-items:center;padding:20px}
+.book h3{font-family:var(--font-h);color:var(--navy-950);font-size:1.9rem;font-weight:900}
+.book small{color:var(--navy-850);display:block;margin-top:8px;letter-spacing:.15em;font-size:.72rem}
+
+/* donation tiers */
+.tiers-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.tier{background:linear-gradient(180deg,#fff,var(--cream-100));border-radius:var(--r-lg);padding:40px 30px;text-align:center;box-shadow:var(--sh-soft);border:1px solid rgba(158,125,59,.18);transition:var(--tr);position:relative;display:flex;flex-direction:column}
+.tier::after{content:"";position:absolute;inset:8px;border:1px solid rgba(212,175,55,.3);border-radius:calc(var(--r-lg) - 6px);pointer-events:none}
+.tier.featured::after{border-color:rgba(212,175,55,.45)}
+.tier:hover{transform:translateY(-8px);box-shadow:var(--sh-card);border-color:var(--gold-300)}
+.tier.featured{background:linear-gradient(160deg,var(--navy-900),var(--navy-800));color:#fff;border:none;transform:scale(1.04)}
+.tier.featured:hover{transform:scale(1.04) translateY(-8px)}
+.tier .badge{position:absolute;top:-13px;inset-inline:0;margin:0 auto;width:max-content;background:var(--gold-400);color:var(--navy-950);font-size:.76rem;font-weight:700;padding:5px 16px;border-radius:20px;letter-spacing:.05em}
+.tier .amt{font-family:var(--font-h);font-size:2.6rem;font-weight:900;color:var(--gold-500)}
+.tier.featured .amt{color:var(--gold-400)}
+.tier .amt small{font-size:1.1rem;font-weight:600}
+.tier .what{color:var(--text-muted);font-size:1.05rem;margin:8px 0 22px;min-height:48px}
+.tier.featured .what{color:var(--text-light)}
+.tier .btn{width:100%;justify-content:center;margin-top:auto}
+.tier-note{text-align:center;margin-top:28px;color:var(--text-muted);font-size:.96rem}
+
+/* forms */
+.forms-wrap{display:grid;grid-template-columns:1fr 1.15fr;gap:32px;align-items:stretch}
+.form-card{background:#fff;border-radius:var(--r-lg);padding:40px;box-shadow:var(--sh-card);border:1px solid var(--cream-50)}
+.form-card.kvittel{background:linear-gradient(160deg,var(--navy-900),var(--navy-850));color:#fff}
+.form-card h3{font-size:1.55rem;color:var(--navy-900);margin-bottom:6px}
+.form-card.kvittel h3{color:#fff}
+.form-card .fc-sub{color:var(--text-muted);margin-bottom:24px;font-size:1rem}
+.form-card.kvittel .fc-sub{color:var(--text-light)}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.fg{margin-bottom:16px}
+.fg.full{grid-column:1/-1}
+.fg label{display:block;font-size:.9rem;font-weight:500;margin-bottom:7px}
+.form-card.kvittel .fg label{color:var(--text-light)}
+.fg .req{color:var(--gold-500)}
+.fg input,.fg select,.fg textarea{width:100%;padding:13px 15px;border:1.5px solid #E2E6ED;border-radius:var(--r-sm);font-family:var(--font-b);font-size:1rem;background:#fff;color:var(--text-dark);transition:border-color .2s,box-shadow .2s}
+.form-card.kvittel .fg input,.form-card.kvittel .fg textarea{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.18);color:#fff}
+.form-card.kvittel .fg input::placeholder,.form-card.kvittel .fg textarea::placeholder{color:#8b93a7}
+.fg input:focus,.fg select:focus,.fg textarea:focus{outline:none;border-color:var(--gold-400);box-shadow:0 0 0 3px rgba(212,175,55,.15)}
+.fg textarea{resize:vertical;min-height:96px}
+.fg .err{display:none;color:var(--color-error,#D32F2F);font-size:.82rem;margin-top:5px}
+.fg.invalid .err{display:block}
+.fg.invalid input,.fg.invalid select,.fg.invalid textarea{border-color:#D32F2F}
+.form-note{font-size:.86rem;color:var(--text-muted);margin-top:14px;display:flex;align-items:center;gap:8px}
+.form-card.kvittel .form-note{color:var(--text-light)}
+.form-submit{width:100%;justify-content:center;margin-top:8px}
+
+/* footer */
+footer{background:var(--navy-950);color:var(--text-light);padding:64px 0 28px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:44px;margin-bottom:40px}
+.foot-col h4{color:#fff;font-size:1.15rem;margin-bottom:16px;font-family:var(--font-h)}
+.foot-col p,.foot-col a{color:#9AA2B5;font-size:.98rem;margin-bottom:10px;display:block;transition:color .2s}
+.foot-col a:hover{color:var(--gold-300)}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:24px;text-align:center;color:#6C7488;font-size:.88rem}
+.foot-logo{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.foot-map-row{display:grid;grid-template-columns:1.3fr 1fr;gap:36px;align-items:stretch;margin-bottom:48px;padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,.1)}
+.foot-map{position:relative;border-radius:var(--r-lg);overflow:hidden;min-height:290px;box-shadow:var(--sh-card);background:linear-gradient(135deg,var(--navy-800),var(--navy-850));border:1px solid rgba(212,175,55,.25)}
+.foot-map .map-fallback{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--text-light);text-align:center;padding:20px;z-index:1}
+.foot-map .map-fallback .pin{font-size:2.6rem}
+.foot-map .map-fallback b{color:#fff;font-size:1.1rem}
+.foot-map .map-fallback small{color:#9AA2B5;direction:ltr}
+.foot-map iframe{position:relative;z-index:2;width:100%;height:100%;min-height:290px;border:0;display:block}
+.foot-actions{display:flex;flex-direction:column;justify-content:center}
+.foot-actions .eyebrow{color:var(--gold-400)}
+.foot-actions h4{color:#fff;font-family:var(--font-h);font-size:1.5rem;margin-bottom:10px}
+.foot-actions .addr{color:#9AA2B5;margin-bottom:24px;font-size:1rem;direction:ltr;text-align:start}
+.nav-btns{display:flex;flex-direction:column;gap:12px}
+.btn-navlink{justify-content:center;font-weight:600}
+.btn-navlink:hover{transform:translateY(-3px);box-shadow:var(--sh-card)}
+.btn-navlink.gmaps{background:var(--gold-400);color:var(--navy-950)}
+.btn-navlink.waze{background:#33ccff;color:#05263a}
+.foot-logo img{height:76px;width:auto}
+.wa-float{position:fixed;bottom:24px;inset-inline-start:24px;width:58px;height:58px;background:#25D366;border-radius:50%;display:grid;place-items:center;box-shadow:0 8px 24px rgba(37,211,102,.4);z-index:90;transition:transform .3s;animation:pulse 2.5s infinite}
+.wa-float:hover{transform:scale(1.1)}
+.wa-float svg{width:32px;height:32px;color:#fff}
+@keyframes pulse{0%{box-shadow:0 8px 24px rgba(37,211,102,.4),0 0 0 0 rgba(37,211,102,.4)}70%{box-shadow:0 8px 24px rgba(37,211,102,.4),0 0 0 16px rgba(37,211,102,0)}100%{box-shadow:0 8px 24px rgba(37,211,102,.4),0 0 0 0 rgba(37,211,102,0)}}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(38px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.1s}.reveal.d2{transition-delay:.2s}.reveal.d3{transition-delay:.3s}
+
+/* toast */
+.toast{position:fixed;bottom:30px;inset-inline-end:30px;background:var(--navy-900);color:#fff;padding:16px 24px;border-radius:var(--r-md);box-shadow:var(--sh-elev);z-index:2000;transform:translateY(120px);opacity:0;transition:var(--tr);border-inline-start:4px solid var(--gold-400)}
+.toast.show{transform:none;opacity:1}
+
+/* luxury ornaments */
+.sec{position:relative}
+.sec>.container{position:relative;z-index:2}
+.watermark{position:absolute;top:50%;transform:translateY(-50%);font-family:var(--font-h);font-weight:900;color:var(--gold-500);opacity:.055;font-size:clamp(14rem,38vw,32rem);line-height:.62;z-index:1;pointer-events:none;user-select:none;white-space:nowrap}
+.watermark.wr{inset-inline-end:-4%}
+.watermark.wl{inset-inline-start:-4%}
+.flourish{display:flex;align-items:center;justify-content:center;gap:16px;margin:20px auto 0}
+.flourish i{height:1px;width:clamp(48px,10vw,90px);background:linear-gradient(90deg,transparent,var(--gold-400))}
+.flourish i:last-child{background:linear-gradient(90deg,var(--gold-400),transparent)}
+.flourish b{color:var(--gold-500);font-size:.8rem;transform:rotate(45deg);display:inline-block}
+.arch-top{position:absolute;top:-1px;inset-inline:0;height:64px;background:radial-gradient(80% 100% at 50% 0,var(--cream-100) 0,var(--cream-100) 40%,transparent 41%);z-index:3;pointer-events:none}
+.eyebrow{position:relative}
+
+/* responsive */
+@media(max-width:960px){
+  .watermark{opacity:.04}
+  :root{--sp:64px}
+  nav.main{position:fixed;inset:0 0 0 auto;width:min(80vw,320px);background:var(--navy-900);flex-direction:column;justify-content:center;gap:26px;transform:translateX(100%);transition:transform .4s;box-shadow:-10px 0 40px rgba(0,0,0,.4)}
+  nav.main.open{transform:none}
+  nav.main a{color:#EAECF2}
+  nav.main .nav-cta{margin-top:8px}
+  .burger{display:flex;z-index:101}
+  .burger.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+  .burger.open span:nth-child(2){opacity:0}
+  .burger.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+  .about-grid,.legacy .container,.forms-wrap,.hero-grid{grid-template-columns:1fr;gap:36px}
+  .hero{min-height:auto;padding:110px 0 54px;text-align:center}
+  .hero .quote{margin-inline:auto}
+  .hero-cta{justify-content:center}
+  .hero h1{align-items:center}
+  .hero-photo{order:-1}
+  .arch-photo{max-width:320px}
+  .svc-grid,.tiers-grid{grid-template-columns:1fr 1fr}
+  .counter-grid{grid-template-columns:1fr 1fr;gap:32px 20px}
+  .counter-item:nth-child(3){border:none}
+  .gallery-grid{grid-template-columns:1fr 1fr;grid-auto-rows:160px}
+  .foot-grid{grid-template-columns:1fr;gap:30px}
+  .foot-map-row{grid-template-columns:1fr;gap:22px}
+}
+@media(max-width:560px){
+  .svc-grid,.tiers-grid,.fgrid{grid-template-columns:1fr}
+  .counter-grid{grid-template-columns:1fr 1fr}
+  .form-card{padding:26px}
+  .hero-cta{flex-direction:column;align-items:stretch}
+  .g-item.big{grid-column:span 2;grid-row:span 1}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header id="site-header">
+  <div class="bar">
+    <a href="#" class="logo"><img src="img/logo-color.png" alt="הקרן למורשת פלא יועץ — הציון הקדוש"></a>
+    <nav class="main" id="nav">
+      <a href="#about">הציון הקדוש</a>
+      <a href="#services">שירותים למבקרים</a>
+      <a href="#gallery">גלריה</a>
+      <a href="#legacy">מורשת הספר</a>
+      <a href="#donate">שותפות</a>
+      <a href="#" data-nedarim class="btn btn-gold nav-cta">לתרומה מאובטחת</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="תפריט"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <img class="hero-wm" src="img/logo-color.png" alt="" aria-hidden="true">
+  <div class="container hero-grid">
+    <div class="hero-text">
+      <span class="eyebrow">הציון הקדוש · סיליסטרה, בולגריה</span>
+      <h1>
+        <span class="pre">פלא ישועות אצל</span>
+        <span class="big">הפלא יועץ</span>
+        <span class="post">בבולגריה</span>
+      </h1>
+      <p class="quote">מקום של תפילה, ישועה והתעוררות הלב — ציונו של הרב אליעזר פאפו זצ״ל, מחבר ספר המוסר הנודע ״פלא יועץ״. מדי שנה מגיעים לכאן יהודים מכל העולם.</p>
+      <div class="hero-cta">
+        <a href="#kvittel" class="btn btn-gold">לשליחת שמות לתפילה — לחצו כאן ←</a>
+        <a href="#services" class="btn btn-ghost">תכננו את הביקור</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <div class="arch-photo"><img src="img/noroot.jpg" alt="הציון הקדוש של בעל הפלא יועץ בסיליסטרה"></div>
+    </div>
+  </div>
+  <a href="#marquee" class="scroll-hint" aria-label="גלול למטה">↓</a>
+</section>
+
+<!-- ===== MARQUEE ===== -->
+<div class="marquee" id="marquee">
+  <div class="marquee-track" id="mtrack"></div>
+</div>
+
+<!-- ===== ABOUT ===== -->
+<section class="sec" id="about">
+  <span class="watermark wr">א</span>
+  <div class="container about-grid">
+    <div class="about-img reveal">
+      <div class="about-frame"></div>
+      <img src="img/unnamed9.jpg" alt="הציון הקדוש">
+    </div>
+    <div class="about-text reveal d1">
+      <span class="eyebrow">מוקד תפילה עולמי</span>
+      <h2 class="sec-title" style="text-align:right">הציון הקדוש</h2>
+      <p class="lead-p">ציונו של הרב אליעזר פאפו זצ״ל מהווה מוקד תפילה והתעוררות ליהודים מכל העולם.</p>
+      <p>במהלך השנים האחרונות נעשתה במקום פעילות רחבת היקף לשיקום, פיתוח והנגשת הציון, במטרה לאפשר לכל מבקר להגיע, להתפלל ולשהות במקום בכבוד ובנוחות.</p>
+      <div class="read-more-txt" id="aboutMore">
+        <p>קרן ״פלא יועץ״ פועלת לשימור מורשתו של הרב אליעזר פאפו ולהמשך פיתוח הציון הקדוש — פיתוח ושדרוג מתחם הציון, תחזוקה שוטפת, קבלת מבקרים לאורך כל השנה, הפצת ספרי הצדיק, הפקת מעמדי תפילה והתעוררות, וסיוע לקבוצות מהארץ ומהעולם.</p>
+      </div>
+      <button class="link-more" id="aboutToggle">קרא עוד ↓</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COUNTERS ===== -->
+<section class="sec counters">
+  <div class="container">
+    <div class="counter-grid">
+      <div class="counter-item reveal"><div class="num"><span class="count" data-to="15000">0</span><span class="plus">+</span></div><div class="lbl">מתפללים בציון בשנה</div></div>
+      <div class="counter-item reveal d1"><div class="num"><span class="count" data-to="120">0</span><span class="plus">+</span></div><div class="lbl">קבוצות מאורחות</div></div>
+      <div class="counter-item reveal d2"><div class="num"><span class="count" data-to="40000">0</span><span class="plus">+</span></div><div class="lbl">שמות שנשלחו לתפילה</div></div>
+      <div class="counter-item reveal d3"><div class="num"><span class="count" data-to="200">0</span><span class="plus">+</span></div><div class="lbl">שנות מורשת</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section class="sec" id="services">
+  <div class="container center">
+    <span class="eyebrow reveal">שירותים למבקרים</span>
+    <h2 class="sec-title reveal">כל מה שצריך כדי להגיע לציון בנוחות</h2>
+    <div class="flourish reveal"><i></i><b>◆</b><i></i></div>
+    <p class="sec-sub reveal" style="margin-top:18px">ריכזנו עבורכם את כל השירותים הדרושים לקראת הביקור — מתיאום הכניסה ועד האירוח והחזרה הביתה.</p>
+  </div>
+  <span class="watermark wl">פ</span>
+  <div class="svc-carousel-wrap">
+    <button class="caro-arrow prev" id="svcPrev" aria-label="הקודם">‹</button>
+    <div class="svc-carousel" id="svcCarousel"></div>
+    <button class="caro-arrow next" id="svcNext" aria-label="הבא">›</button>
+  </div>
+  <p class="tier-note" style="margin-top:6px">גררו לצדדים לגלילה · לחצו על שירות לפנייה מהירה בוואטסאפ</p>
+</section>
+
+<!-- ===== GALLERY ===== -->
+<section class="sec" id="gallery" style="background:var(--cream-50)">
+  <div class="container center">
+    <span class="eyebrow reveal">רגעים של קדושה</span>
+    <h2 class="sec-title reveal">גלריית הציון</h2>
+    <div class="flourish reveal"><i></i><b>◆</b><i></i></div>
+    <p class="sec-sub reveal" style="margin-top:18px">תמונות מהמקום הקדוש, ממעמדי תפילה, מאירועים מיוחדים ומהפעילות השוטפת לאורך השנה.</p>
+  </div>
+  <div class="container gallery-grid reveal" style="margin-top:44px" id="galGrid"></div>
+</section>
+
+<!-- ===== LEGACY / BOOK ===== -->
+<section class="sec legacy" id="legacy">
+  <div class="container">
+    <div class="reveal">
+      <span class="eyebrow">אוצר רוחני</span>
+      <h2>מורשת ה״פלא יועץ״</h2>
+      <p>ספר ״פלא יועץ״ נחשב לאחד מספרי המוסר החשובים והנפוצים ביותר בעולם היהודי. ייחודו בכך שהוא מעניק הדרכה מעשית לעבודת ה׳, לתיקון המידות ולחיי היום־יום — בלשון בהירה, קצרה ונגישה.</p>
+      <p>מורשתו של הרב אליעזר פאפו ממשיכה להאיר את דרכם של רבבות יהודים בכל דור. חפשו ערכים לפי אותיות ונושאים, עיינו בתוכן, ורכשו את ספרי הצדיק.</p>
+      <a href="#" data-wa-link data-wa-msg="שלום, אשמח לפרטים על עיון ורכישת ספרי ה׳פלא יועץ׳." class="btn btn-gold" style="margin-top:8px">לעיון ורכישת הספרים ←</a>
+    </div>
+    <div class="book-visual reveal d1">
+      <div class="book"><div class="b-in"><div><h3>פלא<br>יועץ</h3><small>הרב אליעזר פאפו זצ״ל</small></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DONATION TIERS ===== -->
+<section class="sec" id="donate">
+  <div class="container center">
+    <span class="eyebrow reveal">שותפות ותרומה</span>
+    <h2 class="sec-title reveal">היו שותפים בהחזקת הציון</h2>
+    <div class="flourish reveal"><i></i><b>◆</b><i></i></div>
+    <p class="sec-sub reveal" style="margin-top:18px">כל תרומה מסייעת להרחבת הפעילות, לקליטת המבקרים ולהפצת תורתו של בעל ה״פלא יועץ״. בחרו מסלול שותפות:</p>
+  </div>
+  <span class="watermark wr">צ</span>
+  <div class="container tiers-grid" style="margin-top:48px" id="tiersGrid"></div>
+  <p class="tier-note">כל התרומות מתבצעות בסליקה מאובטחת דרך <strong>נדרים פלוס</strong> · ניתן לתרום גם בסכום חופשי</p>
+  <div class="center" style="margin-top:26px"><a class="btn btn-navy" data-nedarim href="#">לתרומה בסכום חופשי ←</a></div>
+</section>
+
+<!-- ===== FORMS: KVITTEL + CONTACT ===== -->
+<section class="sec" id="contact" style="background:var(--cream-50)">
+  <div class="container center" style="margin-bottom:44px">
+    <span class="eyebrow reveal">יצירת קשר</span>
+    <h2 class="sec-title reveal">נשמח לעמוד לרשותכם</h2>
+    <div class="flourish reveal"><i></i><b>◆</b><i></i></div>
+  </div>
+  <div class="container forms-wrap">
+
+    <!-- KVITTEL -->
+    <div class="form-card kvittel reveal" id="kvittel">
+      <h3>זקוקים לישועה?</h3>
+      <p class="fc-sub">שלחו קוויטל — שמות לתפילה על הציון הקדוש</p>
+      <form id="kvittelForm" novalidate>
+        <div class="fg"><label>שם המבקש/ת <span class="req">*</span></label><input type="text" name="שם" placeholder="ישראל בן שרה"><span class="err">נא להזין שם</span></div>
+        <div class="fg"><label>שם האם</label><input type="text" name="שם האם" placeholder="לתפילה מדויקת"></div>
+        <div class="fg"><label>טלפון <span class="req">*</span></label><input type="tel" name="טלפון" dir="ltr" placeholder="050-0000000"><span class="err">נא להזין טלפון</span></div>
+        <div class="fg"><label>בקשה לתפילה</label><textarea name="בקשה" placeholder="פרטו את הבקשה..."></textarea></div>
+        <button type="submit" class="btn btn-wa form-submit">שליחת הקוויטל בוואטסאפ ←</button>
+        <p class="form-note">🔒 הפרטים נשלחים ישירות לוואטסאפ של הקרן</p>
+      </form>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="form-card reveal d1">
+      <h3>צור קשר ותיאום ביקור</h3>
+      <p class="fc-sub">מלאו את הפרטים ונציגי הקרן יחזרו אליכם בהקדם</p>
+      <form id="contactForm" novalidate>
+        <div class="fgrid">
+          <div class="fg"><label>שם מלא <span class="req">*</span></label><input type="text" name="שם מלא" placeholder="ישראל ישראלי"><span class="err">נא להזין שם מלא</span></div>
+          <div class="fg"><label>מספר טלפון <span class="req">*</span></label><input type="tel" name="טלפון" dir="ltr" placeholder="050-0000000"><span class="err">נא להזין טלפון תקין</span></div>
+          <div class="fg"><label>כתובת דוא״ל</label><input type="email" name="דוא״ל" dir="ltr" placeholder="example@domain.com"></div>
+          <div class="fg"><label>מדינה / עיר</label><input type="text" name="מיקום" placeholder="ישראל, ירושלים"></div>
+        </div>
+        <div class="fg full"><label>נושא הפנייה <span class="req">*</span></label>
+          <select name="נושא">
+            <option value="" disabled selected>בחרו את נושא הפנייה...</option>
+            <option>אירוח קבוצה</option>
+            <option>הזמנת הסעות</option>
+            <option>הזמנת מלון ואירוח</option>
+            <option>הזמנת ארוחות כשרות</option>
+            <option>פתיחת שערי כניסה</option>
+            <option>תרומה ושותפות</option>
+            <option>שאלה כללית</option>
+          </select><span class="err">נא לבחור נושא</span>
+        </div>
+        <div class="fg full"><label>תוכן ההודעה</label><textarea name="הודעה" placeholder="פירוט נוסף..."></textarea></div>
+        <button type="submit" class="btn btn-wa form-submit">שליחת הפנייה בוואטסאפ ←</button>
+        <p class="form-note">🔒 הפנייה נשלחת ישירות לוואטסאפ של הקרן — ללא שמירת פרטים</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <div class="foot-map-row">
+      <div class="foot-map">
+        <div class="map-fallback"><span class="pin">📍</span><b>הציון הקדוש — סיליסטרה</b><small>Kapitan Krastev 23, Silistra, Bulgaria</small></div>
+        <iframe title="מפת הציון הקדוש" loading="lazy" src="https://maps.google.com/maps?q=44.1228987,27.2703024&z=15&hl=he&output=embed" allowfullscreen></iframe>
+      </div>
+      <div class="foot-actions">
+        <span class="eyebrow">איך מגיעים</span>
+        <h4>הציון הקדוש בסיליסטרה</h4>
+        <p class="addr">Industrialna Zona, Kapitan Krastev 23,<br>7504 Silistra, Bulgaria</p>
+        <div class="nav-btns">
+          <a class="btn btn-navlink gmaps" href="https://www.google.com/maps/dir/?api=1&destination=44.1228987,27.2703024" target="_blank" rel="noopener">📍 ניווט בגוגל מפות</a>
+          <a class="btn btn-navlink waze" href="https://waze.com/ul?ll=44.1228987,27.2703024&navigate=yes" target="_blank" rel="noopener">🧭 ניווט בוויז</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-grid">
+      <div class="foot-col">
+        <div class="foot-logo"><img src="img/logo.png" alt="הקרן למורשת פלא יועץ"></div>
+        <p>הקרן למורשת פלא יועץ פועלת לשימור מורשתו של הרב אליעזר פאפו זצ״ל ולהמשך פיתוח הציון הקדוש בסיליסטרה, בולגריה.</p>
+      </div>
+      <div class="foot-col">
+        <h4>ניווט מהיר</h4>
+        <a href="#about">הציון הקדוש</a>
+        <a href="#services">שירותים למבקרים</a>
+        <a href="#gallery">גלריה</a>
+        <a href="#legacy">מורשת הספר</a>
+        <a href="#donate">שותפות ותרומה</a>
+      </div>
+      <div class="foot-col">
+        <h4>יצירת קשר</h4>
+        <a href="#" data-wa-link>וואטסאפ הקרן</a>
+        <a href="#kvittel">שליחת שמות לתפילה</a>
+        <a href="#contact">תיאום ביקור</a>
+        <a href="#donate" data-nedarim>לתרומה מאובטחת</a>
+      </div>
+    </div>
+    <div class="foot-bottom">© הקרן למורשת פלא יועץ · הציון הקדוש בסיליסטרה, בולגריה · כל הזכויות שמורות</div>
+  </div>
+</footer>
+
+<a href="#" class="wa-float" data-wa-link aria-label="וואטסאפ"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5s-.7-1.6-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.3 5.2 4.6.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.3A10 10 0 1 0 12 2"/></svg></a>
+
+<!-- ===== LIGHTBOX ===== -->
+<div class="lightbox" id="lightbox">
+  <span class="lb-close" id="lbClose">×</span>
+  <span class="lb-nav lb-prev" id="lbPrev">‹</span>
+  <img id="lbImg" src="" alt="">
+  <span class="lb-nav lb-next" id="lbNext">›</span>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ============================================================
+   הגדרות — החלף את שני הערכים האלה בפרטים האמיתיים
+   ============================================================ */
+const CONFIG = {
+  // מספר וואטסאפ בפורמט בינלאומי ללא + וללא 0 מוביל (972 = ישראל)
+  whatsapp: '97225703060',             // וואטסאפ הקרן: 02-570-3060 (ודא WhatsApp Business על הקו)
+  // קישור דף התרומות בנדרים פלוס
+  nedarimUrl: 'https://www.matara.pro/nedarimplus/online/?mosad=7013249'
+};
+function nedarimHref(amt){let u=CONFIG.nedarimUrl;if(amt){const n=(''+amt).replace(/[^\d]/g,'');if(n)u+=(u.includes('?')?'&':'?')+'amount='+n}return u}
+function openExternal(url){const a=document.createElement('a');a.href=url;a.target='_blank';a.rel='noopener';document.body.appendChild(a);a.click();a.remove()}
+
+/* ---------- נתונים ---------- */
+const services = [
+  {t:'פתיחת שערי הכניסה',d:'תיאום מראש של כניסה לציון הקדוש בשעות הנוחות לכם.',s:'key',img:'img/unnamed9.jpg',tag:'שער הציון'},
+  {t:'הזמנת ארוחות כשרות',d:'ארוחות בכשרות מהודרת ליחידים ולקבוצות.',s:'meal',img:'img/svc-food.jpg',tag:'כשרות מהודרת'},
+  {t:'מלון ואירוח',d:'סידורי לינה ואירוח נוחים בסמוך לציון, על גדות הדנובה.',s:'bed',img:'img/svc-hotel.png',tag:'על הדנובה'},
+  {t:'אירוח קבוצות',d:'ליווי מלא לקבוצות מהארץ ומהעולם, כולל ארוחות.',s:'group',img:'img/svc-group.png',tag:'אירוח קבוצות'},
+  {t:'הזמנת הסעות',d:'הסעות מסודרות ומפוארות אל הציון וממנו.',s:'bus',img:'img/svc-bus.png',tag:'הסעות'},
+  {t:'שמות לתפילה',d:'שליחת קוויטל לתפילה על הציון, גם מרחוק.',s:'pray',img:'img/noroot.jpg',tag:'הציון הקדוש'}
+];
+const ICONS = {
+  key:'<path d="M15 7a4 4 0 1 0-3.9 5H13v2h2v2h2v-2h2v-2h-3.1A4 4 0 0 0 15 7Zm-4 3a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/>',
+  meal:'<path d="M7 2v7a2 2 0 0 0 2 2v11h2V11a2 2 0 0 0 2-2V2h-1v6h-1V2h-1v6H9V2H7Zm11 0c-1.6 0-3 2-3 5s1 4 2 4v9h2V2h-1Z"/>',
+  bed:'<path d="M4 7v10h2v-3h12v3h2V11a4 4 0 0 0-4-4H4Zm3 1.5A1.5 1.5 0 1 1 7 11a1.5 1.5 0 0 1 0-2.5Z"/>',
+  group:'<path d="M12 12a3 3 0 1 0-3-3 3 3 0 0 0 3 3Zm-6 8v-1c0-2 4-3 6-3s6 1 6 3v1H6Zm12-9a2.5 2.5 0 1 0-2.4-3M4.4 8A2.5 2.5 0 1 0 6 11"/>',
+  bus:'<path d="M6 2c-3 0-4 1-4 4v9a2 2 0 0 0 1 1.7V19a1 1 0 0 0 2 0v-1h10v1a1 1 0 0 0 2 0v-1.3A2 2 0 0 0 18 15V6c0-3-1-4-4-4H6Zm-1 12a1.2 1.2 0 1 1 0 2.4A1.2 1.2 0 0 1 5 14Zm10 0a1.2 1.2 0 1 1 0 2.4A1.2 1.2 0 0 1 15 14ZM4 6h12v4H4V6Z"/>',
+  pray:'<path d="M12 2 8 8v6c0 3 2 5 4 8 2-3 4-5 4-8V8l-4-6Zm0 4 2 3v5c0 1.6-.8 2.9-2 4.5-1.2-1.6-2-2.9-2-4.5V9l2-3Z"/>'
+};
+const galleryImgs = [
+  'img/noroot.jpg',
+  'img/2unnamed.jpg',
+  'img/unnamed8.jpg',
+  'img/7unnamed.jpg',
+  'img/unnamed9.jpg',
+  'img/5unnamed.jpg',
+  'img/3unnamed.jpg',
+  'img/unnamed.jpg'
+];
+const tiers = [
+  {amt:'₪180',what:'החזקת הציון ליום אחד',feat:false},
+  {amt:'₪360',what:'תחזוקת המקום לשבוע + הזכרה בתפילה',feat:true,badge:'המסלול הפופולרי'},
+  {amt:'₪1,000',what:'שותפות חודשית בפיתוח והפצת הספרים',feat:false}
+];
+
+/* ---------- רינדור ---------- */
+// marquee (כפול לגלילה חלקה)
+const mItems = services.map(s=>`<span class="m-item"><svg viewBox="0 0 24 24" fill="currentColor">${ICONS[s.s]}</svg>${s.t}</span><span class="m-item dot">◆</span>`).join('');
+document.getElementById('mtrack').innerHTML = mItems + mItems;
+
+// services carousel
+document.getElementById('svcCarousel').innerHTML = services.map(s=>`
+  <article class="svc-slide">
+    <div class="svc-photo">
+      ${s.img
+        ? `<span class="tag">${s.tag||''}</span><img src="${s.img}" alt="${s.t}" loading="lazy">`
+        : `<div class="ph"><svg viewBox="0 0 24 24" fill="currentColor">${ICONS[s.s]}</svg><b>מקום לתמונה</b><small>${s.t}</small></div>`}
+    </div>
+    <div class="svc-ico"><svg viewBox="0 0 24 24" fill="currentColor">${ICONS[s.s]}</svg></div>
+    <div class="svc-body">
+      <h3>${s.t}</h3><p>${s.d}</p>
+      <a href="#contact" class="svc-link">לפנייה ותיאום <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></a>
+    </div>
+  </article>`).join('');
+// carousel arrows (RTL)
+const _caro=document.getElementById('svcCarousel');
+const _amt=()=>Math.min(_caro.clientWidth*0.8,380);
+document.getElementById('svcNext').onclick=()=>_caro.scrollBy({left:-_amt(),behavior:'smooth'});
+document.getElementById('svcPrev').onclick=()=>_caro.scrollBy({left:_amt(),behavior:'smooth'});
+
+// gallery (עם פריטים גדולים לעניין ויזואלי)
+const spanClass = ['big','','','wide','','','','wide'];
+document.getElementById('galGrid').innerHTML = galleryImgs.map((src,i)=>`
+  <div class="g-item ${spanClass[i]||''}" data-idx="${i}"><img src="${src}" alt="הציון הקדוש — תמונה ${i+1}" loading="lazy"></div>`).join('');
+
+// tiers
+document.getElementById('tiersGrid').innerHTML = tiers.map((t,i)=>`
+  <div class="tier ${t.feat?'featured':''} reveal ${i===1?'d1':i===2?'d2':''}">
+    ${t.badge?`<span class="badge">${t.badge}</span>`:''}
+    <div class="amt">${t.amt}</div>
+    <p class="what">${t.what}</p>
+    <a class="btn ${t.feat?'btn-gold':'btn-navy'}" data-nedarim data-amt="${t.amt}" href="#">לתרומה ושותפות ←</a>
+  </div>`).join('');
+
+/* ---------- אינטראקציות ---------- */
+// header scroll
+const header = document.getElementById('site-header');
+addEventListener('scroll',()=>header.classList.toggle('scrolled',scrollY>40));
+
+// mobile nav
+const burger=document.getElementById('burger'), nav=document.getElementById('nav');
+burger.onclick=()=>{burger.classList.toggle('open');nav.classList.toggle('open')};
+nav.querySelectorAll('a').forEach(a=>a.onclick=()=>{burger.classList.remove('open');nav.classList.remove('open')});
+
+// about read more
+const aToggle=document.getElementById('aboutToggle'), aMore=document.getElementById('aboutMore');
+aToggle.onclick=()=>{const o=aMore.classList.toggle('open');aToggle.textContent=o?'הצג פחות ↑':'קרא עוד ↓'};
+
+// reveal on scroll
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// counters
+let counted=false;
+const cSec=document.querySelector('.counters');
+const cIO=new IntersectionObserver(es=>es.forEach(e=>{
+  if(e.isIntersecting&&!counted){counted=true;
+    document.querySelectorAll('.count').forEach(el=>{
+      const to=+el.dataset.to; let cur=0; const step=to/60;
+      const tick=()=>{cur+=step;if(cur<to){el.textContent=Math.floor(cur).toLocaleString('he');requestAnimationFrame(tick)}else el.textContent=to.toLocaleString('he')};tick();
+    });
+  }
+}),{threshold:.4});
+cIO.observe(cSec);
+
+// gallery lightbox
+const lb=document.getElementById('lightbox'), lbImg=document.getElementById('lbImg');
+let curIdx=0;
+function openLb(i){curIdx=i;lbImg.src=galleryImgs[i];lb.classList.add('open')}
+function nav2(d){curIdx=(curIdx+d+galleryImgs.length)%galleryImgs.length;lbImg.src=galleryImgs[curIdx]}
+document.getElementById('galGrid').onclick=e=>{const it=e.target.closest('.g-item');if(it)openLb(+it.dataset.idx)};
+document.getElementById('lbClose').onclick=()=>lb.classList.remove('open');
+document.getElementById('lbPrev').onclick=()=>nav2(-1);
+document.getElementById('lbNext').onclick=()=>nav2(1);
+lb.onclick=e=>{if(e.target===lb)lb.classList.remove('open')};
+addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')lb.classList.remove('open');if(e.key==='ArrowLeft')nav2(1);if(e.key==='ArrowRight')nav2(-1)});
+
+// nedarim links — קישורים אמיתיים (עובדים תמיד, גם בלי JS פעיל)
+document.querySelectorAll('[data-nedarim]').forEach(el=>{
+  const href=nedarimHref(el.dataset.amt);
+  if(el.tagName==='A'){el.href=href;el.target='_blank';el.rel='noopener'}
+  else el.addEventListener('click',e=>{e.preventDefault();openExternal(href)});
+});
+
+// whatsapp links
+function waLink(text){return `https://wa.me/${CONFIG.whatsapp}${text?'?text='+encodeURIComponent(text):''}`}
+document.querySelectorAll('[data-wa-link]').forEach(a=>a.href=waLink(a.dataset.waMsg||'שלום, הגעתי דרך אתר הקרן למורשת פלא יועץ ואשמח לפרטים.'));
+
+// toast
+function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3500)}
+
+// form → whatsapp
+function handleForm(form,title){
+  form.addEventListener('submit',e=>{
+    e.preventDefault();
+    let ok=true;
+    form.querySelectorAll('input,select,textarea').forEach(f=>{
+      const g=f.closest('.fg');if(!g)return;
+      const required = f.previousElementSibling && f.parentElement.querySelector('.req');
+      // שדות עם כוכבית = חובה
+      const isReq = g.querySelector('.req');
+      if(isReq && !f.value.trim()){g.classList.add('invalid');ok=false}
+      else g.classList.remove('invalid');
+    });
+    if(!ok){toast('נא למלא את שדות החובה');return}
+    let lines=[`*${title}*`,''];
+    form.querySelectorAll('input,select,textarea').forEach(f=>{
+      if(f.value.trim())lines.push(`${f.name}: ${f.value.trim()}`);
+    });
+    lines.push('','(נשלח מאתר הקרן למורשת פלא יועץ)');
+    openExternal(waLink(lines.join('\n')));
+    toast('נפתח וואטסאפ לשליחת הפנייה ✓');
+    form.reset();
+  });
+  // הסרת שגיאה בהקלדה
+  form.querySelectorAll('input,select,textarea').forEach(f=>f.addEventListener('input',()=>f.closest('.fg')?.classList.remove('invalid')));
+}
+handleForm(document.getElementById('kvittelForm'),'קוויטל — שמות לתפילה');
+handleForm(document.getElementById('contactForm'),'פנייה חדשה מהאתר');
+</script>
+</body>
+</html>
