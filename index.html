@@ -722,7 +722,7 @@ const AMEN_ICONS={
   cup:'<path d="M5 8h11v6a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4V8Z"/><path d="M16 9h2a2 2 0 0 1 0 4h-2"/><path d="M8 2.5v2M11 2.5v2"/>'
 };
 const amenities=[
-  {t:'הציון הקדוש',s:'dome',badge:'ממוזג ומחומם',img:null},
+  {t:'הציון הקדוש',s:'dome',badge:'ממוזג ומחומם',img:'img/svc-tzion.jpg',pos:'center 32%'},
   {t:'מתחם כהנים',s:'gate',img:null},
   {t:'מקווה טהרה',s:'water',badge:'מהודר',img:'img/svc-mikveh.png'},
   {t:'בית כנסת',s:'shul',img:null},
@@ -735,7 +735,7 @@ dialEl.innerHTML=
   '<div class="dial-center"><img src="img/logo.png" alt="הקרן למורשת פלא יועץ"></div>'+
   amenities.map((a,i)=>`
   <div class="dial-item" data-base="${i*60}" data-name="${a.t}" data-badge="${a.badge||''}" style="--a:${i*60}deg">
-    <div class="node">${a.img?`<img src="${a.img}" alt="${a.t}">`:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${AMEN_ICONS[a.s]}</svg>`}</div>
+    <div class="node">${a.img?`<img src="${a.img}" alt="${a.t}"${a.pos?` style="object-position:${a.pos}"`:''}>`:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${AMEN_ICONS[a.s]}</svg>`}</div>
     <div class="lbl">${a.t}${a.badge?`<span class="sub">${a.badge}</span>`:''}</div>
   </div>`).join('');
 // rotating dial — spin with mouse/finger, top item enlarged
