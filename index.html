@@ -73,7 +73,7 @@ nav.main a:hover::after{transform:scaleX(1)}
 .hero{position:relative;min-height:94vh;display:flex;align-items:center;padding:130px 0 70px;overflow:hidden;
   background:radial-gradient(1100px 760px at 82% 6%,var(--gold-100),transparent 52%),linear-gradient(180deg,var(--cream-100),var(--cream-50))}
 .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;position:relative;z-index:2}
-.hero-wm{position:absolute;top:50%;inset-inline-start:-6%;transform:translateY(-50%);height:130%;width:auto;opacity:.06;z-index:0;pointer-events:none;user-select:none}
+.hero-wm{position:absolute;top:50%;inset-inline-start:50%;transform:translate(-50%,-50%);width:min(640px,80%);height:auto;opacity:.05;z-index:0;pointer-events:none;user-select:none}
 .hero-text{animation:fadeUp 1s .1s both}
 .hero-text .eyebrow{color:var(--gold-600)}
 .hero h1{display:flex;flex-direction:column;line-height:1;margin-bottom:22px}
@@ -157,15 +157,34 @@ nav.main a:hover::after{transform:scaleX(1)}
 .caro-arrow.next{inset-inline-start:-8px}
 @media(max-width:700px){.caro-arrow{display:none}.svc-slide{flex-basis:80%}}
 
-/* amenities */
-.amen-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.amen-card{background:linear-gradient(180deg,#fff,var(--cream-100));border:1px solid rgba(158,125,59,.16);border-radius:var(--r-lg);padding:30px 26px;display:flex;gap:18px;align-items:flex-start;box-shadow:var(--sh-soft);transition:var(--tr);position:relative}
-.amen-card:hover{transform:translateY(-6px);box-shadow:var(--sh-card);border-color:var(--gold-400)}
-.amen-card .ico{width:58px;height:58px;flex-shrink:0;border-radius:50%;background:radial-gradient(circle at 30% 30%,var(--gold-100),var(--cream-50));display:grid;place-items:center;box-shadow:inset 0 0 0 1px rgba(212,175,55,.4)}
-.amen-card .ico svg{width:28px;height:28px;color:var(--gold-600)}
-.amen-card h3{font-size:1.2rem;color:var(--navy-900);margin-bottom:5px}
-.amen-card p{color:var(--text-muted);font-size:.97rem;line-height:1.65}
-.amen-card .badge2{display:inline-block;margin-top:10px;background:var(--gold-100);color:var(--gold-600);font-size:.74rem;font-weight:700;padding:4px 13px;border-radius:20px;letter-spacing:.02em}
+/* amenities — rotary dial */
+.dial{position:relative;--dial:min(560px,84vw);--r:calc(var(--dial)*0.385);width:var(--dial);height:var(--dial);margin:40px auto 0;cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none}
+.dial.grabbing{cursor:grabbing}
+.dial-hint{text-align:center;color:var(--gold-600);font-size:.9rem;font-weight:600;margin-top:22px;opacity:.85}
+.dial-hint svg{width:18px;height:18px;vertical-align:-3px}
+.dial-ring{position:absolute;inset:7%;border:2px dashed rgba(158,125,59,.4);border-radius:50%}
+.dial-ring::after{content:"";position:absolute;inset:7%;border:1px solid rgba(158,125,59,.16);border-radius:50%}
+.dial-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:37%;height:37%;border-radius:50%;background:radial-gradient(circle at 40% 35%,var(--navy-800),var(--navy-950));display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;color:#fff;box-shadow:var(--sh-elev),inset 0 0 0 3px rgba(212,175,55,.3);z-index:2;padding:12px}
+.dial-center img{width:66%;max-width:120px}
+.dial-center span{font-family:var(--font-h);font-size:.9rem;color:var(--gold-300);line-height:1.2;letter-spacing:.02em}
+.dial-item{position:absolute;top:50%;left:50%;width:136px;transform:translate(-50%,-50%) rotate(var(--a)) translateY(calc(-1*var(--r))) rotate(calc(-1*var(--a)));transition:transform 1.15s cubic-bezier(.22,1,.36,1);text-align:center}
+.dial-item .node{width:96px;height:96px;border-radius:50%;background:linear-gradient(180deg,#fff,var(--cream-100));border:2px solid rgba(158,125,59,.3);box-shadow:var(--sh-card);display:grid;place-items:center;margin:0 auto;overflow:hidden;transition:transform .6s cubic-bezier(.22,1,.36,1),border-color .4s,box-shadow .4s}
+.dial-item .node svg{width:40px;height:40px;color:var(--gold-600)}
+.dial-item .node img{width:100%;height:100%;object-fit:cover}
+.dial-item .lbl{margin-top:12px;font-weight:600;color:var(--navy-900);font-size:.92rem;line-height:1.25;transition:color .4s}
+.dial-item .sub{display:block;font-size:.7rem;color:var(--gold-600);font-weight:700;margin-top:3px}
+.dial-item.active{z-index:5}
+.dial-item.active .node{transform:scale(1.32);border-color:var(--gold-400);box-shadow:0 18px 38px rgba(10,17,40,.24)}
+.dial-item.active .lbl{color:var(--gold-600);font-size:1.02rem}
+.dial:hover .dial-rotor-state{}
+@media(max-width:620px){
+  .dial{width:100%;height:auto;display:flex;flex-wrap:wrap;justify-content:center;gap:26px 16px;margin-top:26px;cursor:default;touch-action:auto}
+  .dial-ring{display:none}
+  .dial-center{position:static;transform:none;width:100%;height:auto;flex-direction:row;border-radius:var(--r-lg);padding:16px 20px;gap:14px;order:-1;box-shadow:var(--sh-card)}
+  .dial-center img{width:52px}
+  .dial-item{position:static;transform:none;width:130px}
+  .dial-hint{display:none}
+}
 
 /* gallery */
 .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:16px}
@@ -260,6 +279,7 @@ footer{background:var(--navy-950);color:var(--text-light);padding:64px 0 28px}
 .foot-actions h4{color:#fff;font-family:var(--font-h);font-size:1.5rem;margin-bottom:10px}
 .foot-actions .addr{color:#9AA2B5;margin-bottom:24px;font-size:1rem;direction:ltr;text-align:start}
 .nav-btns{display:flex;flex-direction:column;gap:12px}
+.navico{width:22px;height:22px;flex-shrink:0}
 .btn-navlink{justify-content:center;font-weight:600}
 .btn-navlink:hover{transform:translateY(-3px);box-shadow:var(--sh-card)}
 .btn-navlink.gmaps{background:var(--gold-400);color:var(--navy-950)}
@@ -304,13 +324,16 @@ footer{background:var(--navy-950);color:var(--text-light);padding:64px 0 28px}
   .burger.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
   .burger.open span:nth-child(2){opacity:0}
   .burger.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
-  .about-grid,.legacy .container,.forms-wrap,.hero-grid{grid-template-columns:1fr;gap:36px}
-  .hero{min-height:auto;padding:110px 0 54px;text-align:center}
-  .hero .quote{margin-inline:auto}
+  .about-grid,.legacy .container,.forms-wrap,.hero-grid{grid-template-columns:1fr;gap:30px}
+  .hero{min-height:auto;padding:104px 0 50px;text-align:center}
+  .hero-wm{display:none}
+  .hero .quote{margin-inline:auto;font-size:1.04rem}
   .hero-cta{justify-content:center}
-  .hero h1{align-items:center}
+  .hero h1{align-items:center;margin-bottom:18px}
+  .hero h1 .big{font-size:clamp(3rem,15vw,4.4rem)}
   .hero-photo{order:-1}
-  .arch-photo{max-width:320px}
+  .arch-photo{max-width:300px}
+  .hero-text .eyebrow{margin-bottom:10px}
   .tiers-grid,.amen-grid{grid-template-columns:1fr 1fr}
   .counter-grid{grid-template-columns:1fr 1fr;gap:32px 20px}
   .counter-item:nth-child(3){border:none}
@@ -416,7 +439,8 @@ footer{background:var(--navy-950);color:var(--text-light);padding:64px 0 28px}
     <div class="flourish reveal"><i></i><b>◆</b><i></i></div>
     <p class="sec-sub reveal" style="margin-top:18px">מתחם הציון הקדוש שופץ, הורחב והונגש — כדי שכל מבקר יוכל להתפלל, לטבול ולשהות בכבוד ובנוחות, בכל עונה ובכל שעה.</p>
   </div>
-  <div class="container amen-grid reveal" id="amenGrid" style="margin-top:48px"></div>
+  <div class="container"><div class="dial reveal" id="amenGrid"></div></div>
+  <p class="dial-hint reveal">✋ גררו את החוגה לסיבוב — או תנו לה להסתובב לבד</p>
 </section>
 
 <!-- ===== SERVICES ===== -->
@@ -544,8 +568,8 @@ footer{background:var(--navy-950);color:var(--text-light);padding:64px 0 28px}
         <h4>הציון הקדוש בסיליסטרה</h4>
         <p class="addr">Industrialna Zona, Kapitan Krastev 23,<br>7504 Silistra, Bulgaria</p>
         <div class="nav-btns">
-          <a class="btn btn-navlink gmaps" href="https://www.google.com/maps/dir/?api=1&destination=44.1228987,27.2703024" target="_blank" rel="noopener">📍 ניווט בגוגל מפות</a>
-          <a class="btn btn-navlink waze" href="https://waze.com/ul?ll=44.1228987,27.2703024&navigate=yes" target="_blank" rel="noopener">🧭 ניווט בוויז</a>
+          <a class="btn btn-navlink gmaps" href="https://www.google.com/maps/dir/?api=1&destination=44.1228987,27.2703024" target="_blank" rel="noopener"><svg class="navico" viewBox="0 0 48 48"><defs><clipPath id="gmc"><rect x="8" y="7" width="32" height="34" rx="5"/></clipPath></defs><g clip-path="url(#gmc)"><rect x="8" y="7" width="32" height="34" fill="#34A853"/><polygon points="8,27 22,41 40,41 40,26" fill="#4285F4"/><polygon points="8,19 30,41 40,33 16,11" fill="#FBBC04"/><polygon points="8,24 25,41 31,35 14,18" fill="#FFFFFF"/><text x="13" y="23" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="13" fill="#FFFFFF">G</text></g><path d="M32 9c-4.6 0-8.3 3.5-8.3 7.9 0 5.9 8.3 14.1 8.3 14.1s8.3-8.2 8.3-14.1C40.3 12.5 36.6 9 32 9z" fill="#EA4335"/><circle cx="32" cy="16.7" r="3" fill="#802017"/></svg> ניווט בגוגל מפות</a>
+          <a class="btn btn-navlink waze" href="https://waze.com/ul?ll=44.1228987,27.2703024&navigate=yes" target="_blank" rel="noopener"><svg class="navico" viewBox="0 0 24 24" fill="#ffffff"><path d="M13.218 0C9.915 0 6.835 1.49 4.723 4.148c-1.515 1.913-2.31 4.272-2.31 6.706v1.739c0 .894-.62 1.738-1.862 1.813-.298.025-.547.224-.547.522-.05.82.82 2.31 2.012 3.502.82.844 1.788 1.515 2.832 2.036a3 3 0 0 0 2.955 3.528 2.966 2.966 0 0 0 2.931-2.385h2.509c.323 1.689 2.086 2.856 3.974 2.21 1.64-.546 2.36-2.409 1.763-3.924a12.84 12.84 0 0 0 1.838-1.465 10.73 10.73 0 0 0 3.18-7.65c0-2.882-1.118-5.589-3.155-7.625A10.899 10.899 0 0 0 13.218 0zm0 1.217c2.558 0 4.967.994 6.78 2.807a9.525 9.525 0 0 1 2.807 6.78A9.526 9.526 0 0 1 20 17.585a9.647 9.647 0 0 1-6.78 2.807h-2.46a3.008 3.008 0 0 0-2.93-2.41 3.03 3.03 0 0 0-2.534 1.367v.024a8.945 8.945 0 0 1-2.41-1.788c-.844-.844-1.316-1.614-1.515-2.11a2.858 2.858 0 0 0 1.441-.846 2.959 2.959 0 0 0 .795-2.036v-1.789c0-2.11.696-4.197 2.012-5.861 1.863-2.385 4.62-3.726 7.6-3.726zm-2.41 5.986a1.192 1.192 0 0 0-1.191 1.192 1.192 1.192 0 0 0 1.192 1.193A1.192 1.192 0 0 0 12 8.395a1.192 1.192 0 0 0-1.192-1.192zm7.204 0a1.192 1.192 0 0 0-1.192 1.192 1.192 1.192 0 0 0 1.192 1.193 1.192 1.192 0 0 0 1.192-1.193 1.192 1.192 0 0 0-1.192-1.192zm-7.377 4.769a.596.596 0 0 0-.546.845 4.813 4.813 0 0 0 4.346 2.757 4.77 4.77 0 0 0 4.347-2.757.596.596 0 0 0-.547-.845h-.025a.561.561 0 0 0-.521.348 3.59 3.59 0 0 1-3.254 2.061 3.591 3.591 0 0 1-3.254-2.061.64.64 0 0 0-.546-.348z"/></svg> ניווט בוויז</a>
         </div>
       </div>
     </div>
@@ -570,7 +594,10 @@ footer{background:var(--navy-950);color:var(--text-light);padding:64px 0 28px}
         <a href="#donate" data-nedarim>לתרומה מאובטחת</a>
       </div>
     </div>
-    <div class="foot-bottom">© הקרן למורשת פלא יועץ · הציון הקדוש בסיליסטרה, בולגריה · כל הזכויות שמורות</div>
+    <div class="foot-bottom">
+      <div>© הקרן למורשת פלא יועץ · הציון הקדוש בסיליסטרה, בולגריה · כל הזכויות שמורות</div>
+      <div style="margin-top:8px;font-size:.82rem;color:#5a627a">פלא ישועות (ע״ר) 580680239</div>
+    </div>
   </div>
 </footer>
 
@@ -667,18 +694,43 @@ const AMEN_ICONS={
   cup:'<path d="M5 8h11v6a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4V8Z"/><path d="M16 9h2a2 2 0 0 1 0 4h-2"/><path d="M8 2.5v2M11 2.5v2"/>'
 };
 const amenities=[
-  {t:'הציון הקדוש',d:'בחדר סגור, ממוזג ומחומם — נגיש ונוח בכל עונה.',s:'dome',badge:'ממוזג ומחומם'},
-  {t:'מתחם כהנים',d:'אזור ייעודי המאפשר גם לכהנים להתפלל בסמוך לציון.',s:'gate'},
-  {t:'מקווה טהרה מהודר',d:'מקווה טהרה מפואר ומוקפד לרשות המבקרים.',s:'water'},
-  {t:'בית כנסת',d:'בית כנסת במקום לתפילה בציבור לאורך היום.',s:'shul'},
-  {t:'הכנסת אורחים',d:'קבלת פנים חמה וליווי לכל מבקר ולכל קבוצה.',s:'home'},
-  {t:'שתייה חמה וקרה',d:'עמדת שתייה חמה וקרה זמינה — מסביב לשעון.',s:'cup',badge:'24 שעות'}
+  {t:'הציון הקדוש',s:'dome',badge:'ממוזג ומחומם',img:null},
+  {t:'מתחם כהנים',s:'gate',img:null},
+  {t:'מקווה טהרה',s:'water',badge:'מהודר',img:null},
+  {t:'בית כנסת',s:'shul',img:null},
+  {t:'הכנסת אורחים',s:'home',img:null},
+  {t:'שתייה חמה/קרה',s:'cup',badge:'24 שעות',img:null}
 ];
-document.getElementById('amenGrid').innerHTML=amenities.map((a,i)=>`
-  <div class="amen-card reveal ${i%3===1?'d1':i%3===2?'d2':''}">
-    <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${AMEN_ICONS[a.s]}</svg></div>
-    <div><h3>${a.t}</h3><p>${a.d}</p>${a.badge?`<span class="badge2">${a.badge}</span>`:''}</div>
+const dialEl=document.getElementById('amenGrid');
+dialEl.innerHTML=
+  '<div class="dial-ring"></div>'+
+  '<div class="dial-center"><img src="img/logo.png" alt=""><span>מתחם<br>הציון הקדוש</span></div>'+
+  amenities.map((a,i)=>`
+  <div class="dial-item" data-base="${i*60}" style="--a:${i*60}deg">
+    <div class="node">${a.img?`<img src="${a.img}" alt="${a.t}">`:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${AMEN_ICONS[a.s]}</svg>`}</div>
+    <div class="lbl">${a.t}${a.badge?`<span class="sub">${a.badge}</span>`:''}</div>
   </div>`).join('');
+// rotating dial — spin with mouse/finger, top item enlarged
+const dialItems=[...dialEl.querySelectorAll('.dial-item')];
+const dialWrap=document.querySelector('.dial');
+let dialRot=0,dialTimer=null,dragging=false,startAng=0,startRot=0;
+const dialMQ=matchMedia('(min-width:621px)');
+function itemAng(base){return ((base+dialRot)%360+360)%360}
+function dialActive(){let best=null,bd=1e9;dialItems.forEach(it=>{const a=itemAng(+it.dataset.base);const d=Math.min(a,360-a);if(d<bd){bd=d;best=it}});dialItems.forEach(it=>it.classList.toggle('active',dialMQ.matches&&it===best))}
+function applyRot(){dialItems.forEach(it=>it.style.setProperty('--a',(+it.dataset.base+dialRot)+'deg'));dialActive()}
+function dialStart(){if(dialTimer||!dialMQ.matches)return;dialTimer=setInterval(()=>{if(dragging)return;dialRot+=60;applyRot()},3600)}
+function dialStop(){clearInterval(dialTimer);dialTimer=null}
+function dialCheck(){if(dialMQ.matches){dialActive();dialStart()}else{dialStop();dialItems.forEach(it=>it.classList.remove('active'))}}
+dialCheck();
+dialMQ.addEventListener&&dialMQ.addEventListener('change',dialCheck);
+function angAt(e){const r=dialWrap.getBoundingClientRect();return Math.atan2(e.clientY-(r.top+r.height/2),e.clientX-(r.left+r.width/2))*180/Math.PI}
+dialWrap.addEventListener('pointerdown',e=>{if(!dialMQ.matches)return;dragging=true;startAng=angAt(e);startRot=dialRot;dialStop();dialWrap.classList.add('grabbing');dialItems.forEach(it=>it.style.transition='none');try{dialWrap.setPointerCapture(e.pointerId)}catch(_){}});
+dialWrap.addEventListener('pointermove',e=>{if(!dragging)return;dialRot=startRot+(angAt(e)-startAng);applyRot()});
+function endDrag(){if(!dragging)return;dragging=false;dialWrap.classList.remove('grabbing');dialItems.forEach(it=>it.style.transition='');dialRot=Math.round(dialRot/60)*60;applyRot();dialStart()}
+dialWrap.addEventListener('pointerup',endDrag);
+dialWrap.addEventListener('pointercancel',endDrag);
+dialWrap.addEventListener('mouseenter',()=>{if(!dragging)dialStop()});
+dialWrap.addEventListener('mouseleave',()=>{if(!dragging)dialStart()});
 
 // gallery (עם פריטים גדולים לעניין ויזואלי)
 const spanClass = ['big','','','wide','','','','wide'];
