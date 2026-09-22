@@ -439,8 +439,8 @@ footer{background:var(--navy-950);color:var(--text-light);padding:64px 0 28px}
     <div class="flourish reveal"><i></i><b>◆</b><i></i></div>
     <p class="sec-sub reveal" style="margin-top:18px">מתחם הציון הקדוש שופץ, הורחב והונגש — כדי שכל מבקר יוכל להתפלל, לטבול ולשהות בכבוד ובנוחות, בכל עונה ובכל שעה.</p>
   </div>
-  <div class="container"><div class="dial reveal" id="amenGrid"></div></div>
-  <p class="dial-hint reveal">✋ גררו את החוגה לסיבוב — או תנו לה להסתובב לבד</p>
+  <div class="container"><div class="dial" id="amenGrid"></div></div>
+  <p class="dial-hint">✋ גררו את החוגה לסיבוב — או תנו לה להסתובב לבד</p>
 </section>
 
 <!-- ===== SERVICES ===== -->
@@ -761,8 +761,11 @@ const aToggle=document.getElementById('aboutToggle'), aMore=document.getElementB
 aToggle.onclick=()=>{const o=aMore.classList.toggle('open');aToggle.textContent=o?'הצג פחות ↑':'קרא עוד ↓'};
 
 // reveal on scroll
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+// fail-safe: reveal anything already/near viewport on scroll (in case observer misfires)
+function revealNear(){document.querySelectorAll('.reveal:not(.in)').forEach(e=>{if(e.getBoundingClientRect().top<innerHeight*0.92)e.classList.add('in')})}
+addEventListener('scroll',revealNear,{passive:true});addEventListener('resize',revealNear);revealNear();setTimeout(revealNear,300);
 
 // counters
 let counted=false;
