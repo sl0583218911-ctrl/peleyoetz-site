@@ -60,8 +60,8 @@ header.scrolled{background:linear-gradient(180deg,var(--navy-950),var(--navy-900
 .logo{display:flex;align-items:center}
 .logo img{height:88px;width:auto;transition:var(--tr);filter:drop-shadow(0 3px 10px rgba(0,0,0,.3))}
 header.scrolled .logo img{height:70px}
-nav.main{display:flex;align-items:center;gap:30px}
-nav.main a{color:#EAECF2;font-size:.98rem;font-weight:500;position:relative;padding:6px 0;transition:color .2s}
+nav.main{display:flex;align-items:center;gap:21px}
+nav.main a{color:#EAECF2;font-size:.95rem;font-weight:500;position:relative;padding:6px 0;transition:color .2s;cursor:pointer}
 nav.main a::after{content:"";position:absolute;bottom:0;inset-inline:0;height:2px;background:var(--gold-400);transform:scaleX(0);transition:transform .28s}
 nav.main a:hover{color:var(--gold-300)}
 nav.main a:hover::after{transform:scaleX(1)}
@@ -69,6 +69,13 @@ nav.main a:hover::after{transform:scaleX(1)}
 .lang-switch{border:1.5px solid rgba(226,196,108,.55);border-radius:20px;padding:5px 15px !important;font-size:.85rem !important;font-weight:700 !important;color:var(--gold-300) !important}
 .lang-switch:hover{background:rgba(255,255,255,.08)}
 .lang-switch::after{display:none !important}
+.nav-drop{position:relative}
+.nav-drop .drop-toggle{display:inline-block}
+.drop-menu{position:absolute;top:100%;inset-inline-end:0;background:var(--navy-900);border:1px solid rgba(212,175,55,.3);border-radius:var(--r-md);box-shadow:var(--sh-elev);min-width:210px;padding:8px;display:none;flex-direction:column;gap:2px;margin-top:12px;z-index:120}
+.nav-drop:hover .drop-menu,.nav-drop.open .drop-menu{display:flex}
+.drop-menu a{color:#EAECF2 !important;padding:11px 15px !important;border-radius:var(--r-sm);font-size:.95rem;white-space:nowrap;font-weight:500}
+.drop-menu a::after{display:none !important}
+.drop-menu a:hover{background:rgba(212,175,55,.16);color:var(--gold-300) !important}
 .burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
 .burger span{width:26px;height:2.5px;background:#fff;border-radius:2px;transition:.3s}
 
@@ -336,6 +343,44 @@ footer{background:var(--navy-950);color:var(--text-light);padding:64px 0 28px}
 .arch-top{position:absolute;top:-1px;inset-inline:0;height:64px;background:radial-gradient(80% 100% at 50% 0,var(--cream-100) 0,var(--cream-100) 40%,transparent 41%);z-index:3;pointer-events:none}
 .eyebrow{position:relative}
 
+/* modal (floating window) */
+.modal-overlay{position:fixed;inset:0;background:rgba(6,11,25,.72);backdrop-filter:blur(5px);z-index:1500;display:none;align-items:center;justify-content:center;padding:24px;opacity:0;transition:opacity .3s}
+.modal-overlay.open{display:flex;opacity:1}
+.modal{background:linear-gradient(180deg,#fff,var(--cream-100));border-radius:var(--r-xl);max-width:660px;width:100%;max-height:88vh;overflow:hidden;box-shadow:var(--sh-elev);transform:translateY(24px) scale(.97);transition:transform .38s cubic-bezier(.16,1,.3,1);display:flex;flex-direction:column;border:1px solid rgba(212,175,55,.3)}
+.modal-overlay.open .modal{transform:none}
+.modal-head{background:linear-gradient(135deg,var(--navy-900),var(--navy-800));color:#fff;padding:28px 34px;position:relative;flex-shrink:0;border-bottom:2px solid var(--gold-400)}
+.modal-head .eyebrow{color:var(--gold-300);margin-bottom:4px}
+.modal-head h3{font-family:var(--font-h);font-size:1.75rem;color:#fff;font-weight:700}
+.modal-close{position:absolute;top:18px;inset-inline-end:20px;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.12);border:none;color:#fff;font-size:1.5rem;cursor:pointer;line-height:1;display:grid;place-items:center;transition:background .2s}
+.modal-close:hover{background:rgba(212,175,55,.6);color:var(--navy-950)}
+.modal-body{padding:28px 34px;overflow-y:auto;color:var(--text-muted);font-size:1.05rem;line-height:1.85}
+.modal-body>p:first-child{font-size:1.12rem;color:var(--text-dark);font-weight:500}
+.modal-body h4{font-family:var(--font-h);color:var(--navy-900);font-size:1.22rem;margin:20px 0 8px}
+.modal-body p{margin-bottom:14px}
+.modal-body ul{margin:0 0 16px;padding-inline-start:6px;list-style:none}
+.modal-body li{margin-bottom:10px;position:relative;padding-inline-start:22px}
+.modal-body li::before{content:"◆";position:absolute;inset-inline-start:0;color:var(--gold-400);font-size:.7rem;top:.35em}
+.modal-body .story{background:#fff;border:1px solid rgba(158,125,59,.22);border-inline-start:3px solid var(--gold-400);border-radius:var(--r-md);padding:18px 22px;margin-bottom:16px;box-shadow:var(--sh-soft)}
+.modal-body .story h4{margin-top:0;color:var(--gold-600)}
+.modal-body .mcta{margin-top:24px;display:flex;gap:12px;flex-wrap:wrap}
+.modal-body .m-sub{font-family:var(--font-h);color:var(--gold-600);font-size:1.12rem;font-style:italic;margin-bottom:22px;padding-bottom:16px;border-bottom:1px solid rgba(158,125,59,.22)}
+.modal-body h4.sec{position:relative;padding-inline-start:15px;margin:28px 0 10px;color:var(--navy-900);font-size:1.3rem}
+.modal-body h4.sec::before{content:"";position:absolute;inset-inline-start:0;top:.18em;bottom:.18em;width:4px;border-radius:2px;background:linear-gradient(var(--gold-400),var(--gold-500))}
+.modal-body .vision{display:grid;gap:12px;margin:16px 0 8px}
+.modal-body .vitem{background:#fff;border:1px solid rgba(158,125,59,.2);border-inline-start:3px solid var(--gold-400);border-radius:var(--r-md);padding:15px 18px;box-shadow:var(--sh-soft)}
+.modal-body .vitem b{display:block;font-family:var(--font-h);color:var(--gold-600);font-size:1.08rem;margin-bottom:4px}
+.modal-body .vitem span{color:var(--text-muted);font-size:.98rem;line-height:1.7}
+.modal-body .m-quote{margin:26px 0 8px;text-align:center;background:linear-gradient(135deg,var(--navy-900),var(--navy-800));color:#fff;border-radius:var(--r-lg);padding:26px 24px;border:1px solid rgba(212,175,55,.4)}
+.modal-body .m-quote .q{font-family:var(--font-h);font-size:2rem;color:var(--gold-300);font-weight:700;margin-bottom:6px}
+.modal-body .m-quote small{color:var(--text-light);font-size:.92rem}
+.modal-body .attrib{font-size:.88rem;color:var(--gold-600);font-style:italic;margin-bottom:12px}
+.modal-body .pull{font-family:var(--font-h);color:var(--navy-900);font-size:1.14rem;font-weight:700;text-align:center;margin:14px 0;padding:12px 18px;background:var(--gold-100);border-radius:var(--r-md);border:1px solid rgba(212,175,55,.3)}
+.modal-body .story p{margin-bottom:12px}
+.modal-body .story strong{color:var(--navy-900);font-weight:700}
+.modal-body .divider-o{text-align:center;color:var(--gold-400);letter-spacing:.5em;margin:8px 0 18px;font-size:1rem}
+.modal-body blockquote{margin:16px 0;padding:16px 22px;background:linear-gradient(180deg,var(--cream-50),#fff);border-inline-start:4px solid var(--gold-400);border-radius:0 var(--r-md) var(--r-md) 0;font-family:var(--font-h);color:var(--navy-900);font-size:1.06rem;line-height:1.85;box-shadow:var(--sh-soft)}
+.modal-body blockquote.center{text-align:center;font-size:1.12rem}
+
 /* responsive */
 @media(max-width:960px){
   .watermark{opacity:.04}
@@ -344,6 +389,10 @@ footer{background:var(--navy-950);color:var(--text-light);padding:64px 0 28px}
   nav.main.open{transform:none}
   nav.main a{color:#EAECF2}
   nav.main .nav-cta{margin-top:8px}
+  .nav-drop{width:100%;text-align:center}
+  .drop-toggle{opacity:.6;font-size:.82rem;pointer-events:none}
+  .drop-menu{position:static;display:flex !important;background:transparent;border:none;box-shadow:none;margin:4px 0 0;gap:6px;min-width:0;align-items:center;padding:0}
+  .drop-menu a{color:#EAECF2 !important;font-size:.98rem;padding:4px !important}
   .burger{display:flex;z-index:101}
   .burger.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
   .burger.open span:nth-child(2){opacity:0}
@@ -381,6 +430,14 @@ footer{background:var(--navy-950);color:var(--text-light);padding:64px 0 28px}
   <div class="bar">
     <a href="#" class="logo"><img src="img/logo.png" alt="הקרן למורשת פלא יועץ — הציון הקדוש"></a>
     <nav class="main" id="nav">
+      <div class="nav-drop">
+        <a href="#" class="drop-toggle">אודות ▾</a>
+        <div class="drop-menu">
+          <a href="#" data-modal="about">אודות הקרן</a>
+          <a href="#" data-modal="history">תולדות רבנו</a>
+          <a href="#" data-modal="stories">סיפורי ישועה</a>
+        </div>
+      </div>
       <a href="#about">הציון הקדוש</a>
       <a href="#services">שירותים למבקרים</a>
       <a href="#gallery">גלריה</a>
@@ -650,6 +707,163 @@ footer{background:var(--navy-950);color:var(--text-light);padding:64px 0 28px}
   <span class="lb-nav lb-next" id="lbNext">›</span>
 </div>
 
+<!-- ===== MODALS ===== -->
+<div class="modal-overlay" id="modal-about">
+  <div class="modal">
+    <div class="modal-head">
+      <button class="modal-close" data-close aria-label="סגור">×</button>
+      <span class="eyebrow">אודות</span>
+      <h3>הקרן למורשת ה״פלא יועץ״</h3>
+    </div>
+    <div class="modal-body">
+      <p class="m-sub">מאחורי הקלעים של המהפכה בציונו הקדוש</p>
+
+      <h4 class="sec">הקמת הקרן</h4>
+      <p>הקרן למורשת ה״פלא יועץ״ הוקמה במטרה לשמר, לכבד ולהנחיל לדורות את מורשתו של הצדיק המופלא, רבי אליעזר פאפו זיע״א — בעל ה״פלא יועץ״. דברי תורתו המאירים וספריו הרבים מלווים את עם ישראל זה דורות ומהווים מקור בלתי נדלה של אמונה, מוסר, יראת שמים והדרכה לחיים.</p>
+      <p>במשך שנים רבות עמד מתחם הציון הקדוש בעיר סיליסטרה שבבולגריה כשהוא מוזנח וחסר תנאים בסיסיים. הקבר עצמו ניצב כמעט ללא מחסה הולם מפני הקור בחורף והשמש הקופחת בקיץ, וללא תשתיות ראויות, מתחם מסודר לקבלת קהל או מקווה לטובלים קודם העלייה לציון.</p>
+      <p>לפני תקופה חש הרב חיים ראבד מירושלים כי לא ניתן עוד להשלים עם המצב. יחד עם קבוצת ידידים הנוהגים לפקוד את הציון במשך שנים, נטל על עצמו את המשימה הגדולה: לגייס את המשאבים, לשקם את המקום ולבנות מחדש את מתחם הציון ברוב פאר והדר. מאז פועלים אנשי הקרן במסירות, נוסעים פעמים רבות לאורך השנה ומלווים מקרוב את העבודות.</p>
+
+      <h4 class="sec">המהפכה שכבר התחוללה</h4>
+      <p>בשנה האחרונה שינה מתחם הציון את פניו לבלי הכר. עבודות הבנייה והשיקום נמצאות בעיצומן. המקווה שוקם ברוב פאר ותוך הקפדה בלתי מתפשרת על הידורי הכשרות, בהתייעצות עם גדולי הפוסקים ומומחי המקוואות — ובהם הרב ברנדסדורפר והרב פישהוף.</p>
+      <p>מתחם הקבר הוקף באוהל המעניק לעולים מחסה מפני החום והקור, והוצב מבנה חדש להכנסת אורחים ולשירותים נפרדים. הבאים לפקוד את הציון בימי הקור יכולים למצוא מפלט באולם, להתחמם ולהרוות צימאונם. לאחר שנים של עזובה, מתחיל המקום לקבל את הכבוד הראוי לו.</p>
+
+      <h4 class="sec">החזון</h4>
+      <p>בימים אלו מקודמת מול עיריית סיליסטרה תכנית רחבת־היקף, שנועדה להקים מחדש מתחם מרווח, מפואר ומתקדם, שיקבל בכבוד את המוני בית ישראל הבאים לשאת תפילה על ציונו הקדוש של רבנו.</p>
+      <div class="vision">
+        <div class="vitem"><b>אוהל הציון</b><span>האוהל הזמני יוחלף במבנה קבע גדול, מרווח וממוזג, עם עזרת נשים מסודרת וספריות ובהן ספרי תהילים וספרי בעל ה״פלא יועץ״.</span></div>
+        <div class="vitem"><b>מתחם הכנסת האורחים</b><span>מבנה גדול ומפואר ובו מטבח משוכלל, להגשת ארוחות חמות וכיבוד מגוון לעולים לציון לאורך כל השנה.</span></div>
+        <div class="vitem"><b>המקווה</b><span>כבר פעיל ובשלבי השלמה אחרונים — נותרו התקנת מערכת חימום מתקדמת ורכישת הריהוט הנחוץ.</span></div>
+        <div class="vitem"><b>בית המדרש</b><span>בסמוך לציון ייבנה בית מדרש חדש — חדרי תפילה ולימוד, אוצר ספרים מפואר ומרחב מזמין לעיסוק בתורת הצדיק.</span></div>
+        <div class="vitem"><b>מכון להאדרת ספרי רבנו</b><span>מכון לעריכת ספרי רבנו, הוצאתם והפצתם, לצד כולל אברכים שיעסקו בלימוד כתביו והכנתם לדפוס.</span></div>
+        <div class="vitem"><b>מערך נסיעות ואירוח</b><span>הסדרת קווים קבועים לציון בבולגריה, הסעות, פתרונות לינה ומענה מלא לצורכי העולים לאורך המסע.</span></div>
+        <div class="vitem"><b>הפצת תורת ה״פלא יועץ״</b><span>כל ספרי רבנו ייצאו מחדש במהדורות מפוארות. לאחרונה ראה אור ספר סגולות מלוקט מתורתו, ויוענקו מלגות לעוסקים בספריו.</span></div>
+      </div>
+
+      <h4 class="sec">הדרך להגשמת החזון</h4>
+      <p>הגשמת החזון דורשת משאבים רבים. לצד עלויות הבנייה והפיתוח, נדרשת הקרן לממן באופן שוטף חשמל ומים, הכנסת אורחים, הסעדה, אבטחה, ניקיון ותחזוקה. זהו מהלך היסטורי ההופך את מתחם הציון בעיירה המרוחקת למרכז חי ושוקק של תפילה, תורה וחסד — והזדמנות נדירה להיות שותפים בהשבת כבוד התורה ובהקמת בית ראוי לצדיק.</p>
+
+      <div class="m-quote">
+        <div class="q">״אֲשַׁלֵּם בְּמֵיטְבָא״</div>
+        <small>הבטחתו הנודעת של בעל ה״פלא יועץ״ למסייעים לכבוד מורשתו</small>
+      </div>
+      <p>אשרי מי שיזכה ליטול חלק במפעל הקדוש, לסייע בבניית מתחם הציון ולפעול למען שימור מורשתו של בעל ה״פלא יועץ״ — למען תעמוד ותאיר לעם ישראל עוד ימים רבים.</p>
+
+      <div class="mcta">
+        <a href="#" class="btn btn-gold" data-nedarim data-close>להיות שותף — לתרומה</a>
+        <a href="#kvittel" class="btn btn-navy" data-close>לשליחת שמות לתפילה</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-history">
+  <div class="modal">
+    <div class="modal-head">
+      <button class="modal-close" data-close aria-label="סגור">×</button>
+      <span class="eyebrow">צדיק יסוד עולם</span>
+      <h3>תולדותיו של רבנו הקדוש</h3>
+    </div>
+    <div class="modal-body">
+      <p class="m-sub">רבי אליעזר פאפו זיע״א — בעל ה״פלא יועץ״</p>
+
+      <h4 class="sec">ראשית דרכו</h4>
+      <p>בשנת תקמ״ו (1786), בעיר סרייבו שבבוסניה, נולד רבנו רבי אליעזר פאפו זיע״א, מי שעתיד היה להאיר את עולם התורה והמוסר. הוריו, החסיד רבי יצחק ומרת בלאנקה, גידלו את בנם בבית ספוג באהבת תורה, ביראת שמים ובמידות טובות.</p>
+      <p>כבר בילדותו ניכרו טוהר לבו ושאיפותיו הנעלות. מסופר כי כשנשאל מה ירצה להיות כשיגדל, השיב בפשטות:</p>
+      <p class="pull">״אני רוצה להיות יהודי טוב.״</p>
+      <p>תשובה קצרה זו ביטאה את תמצית משנת חייו: חתירה בלתי פוסקת לשלמות בעבודת הבורא, בתורה, בתפילה, במידות וביחסים שבין אדם לחברו.</p>
+
+      <h4 class="sec">בית אביו</h4>
+      <p>בתיאור מרטיט מספר רבנו בכתביו על ימיו האחרונים של אביו, וממנו ניתן ללמוד על הבית המרומם שבו גדל:</p>
+      <blockquote>״ברם זכור לטוב עט״ר אבא מארי זלה״ה, כי בכל יום מימי חוליו ההוא אמר בקשת ׳לך אלי תשוקתי׳ ושאר וידויים ותחינות של יום הכיפורים, ופלגי מים ירדו עיניו… ולכל מי שהיה נכנס אצלו היה אומר לו: ׳ראה סופו של בשר ודם׳. אשריו ואשרי חלקו.״</blockquote>
+      <p>רבנו ורעייתו זכו לשני בנים ולשתי בנות. את בניו הגאונים הוא מזכיר בכמה מספריו, ולאחר הסתלקותו נטלו בניו חלק מרכזי בהוצאת כתביו לאור — ובזכות מסירותם זכה העולם היהודי לאוצרות רוחניים שהשפעתם ניכרת עד ימינו.</p>
+
+      <h4 class="sec">על כס הרבנות בסיליסטרה</h4>
+      <p>בסביבות שנת תק״פ (1820), בהיותו כבן שלושים וארבע, נקרא רבנו לכהן כרבה של סיליסטרה שבבולגריה. למרות גילו הצעיר נודע כבר אז כתלמיד חכם מופלג וכמנהיג שטובת בני קהילתו תמיד לנגד עיניו. הוא נשא את משא הציבור, דאג לעניים ולחלשים, והשכין שלום בין אדם לחברו.</p>
+      <p>אחד המעשים המפורסמים מספר על יהודי שהואשם בעלילת שווא ונגזר עליו עונש מוות, והשלטונות דרשו סכום עצום תמורת שחרורו. רבנו כינס את בני העיר והכריז בהתרגשות כי אם אין בידם כסף לפדותו — יש למכור אף את ספרי התורה וכלי הקודש, שהרי פיקוח נפש דוחה הכול. דבריו חדרו ללבבות, הסכום נאסף, וחיי היהודי ניצלו. כך הייתה דרכו: תורה שאינה נשארת בין דפי הספר, אלא יורדת אל החיים והופכת לאחריות, למסירות ולחסד.</p>
+
+      <h4 class="sec">חיבוריו הקדושים</h4>
+      <p>לצד הנהגת קהילתו נשא רבנו מפעל תורני רחב היקף, וחיבר ספרים רבים בהלכה, מוסר, דרוש ותפילה. גולת הכותרת היא ספרו הנודע <strong>״פלא יועץ״</strong> — ספר מוסר מקיף, המסודר על פי ערכים בסדר האלף־בית, המדריך את האדם בעבודת הבורא, בתיקון מידותיו, בחיי המשפחה ובחינוך ילדיו.</p>
+      <p>ייחודו של הספר ביכולתו לגעת בכל אדם — דבריו בהירים, מעשיים ומלאי אהבה, ובצד התביעה הרוחנית ניכרות בהם הבנת נפש האדם וחמלה עמוקה. בין חיבוריו הנוספים ספר <strong>״חודש האביב״</strong> על מסכתות ברכות ושבת, שעליו עמל שבע שנים. כשנשאל כיצד הוא מוצא לכך זמן, השיב:</p>
+      <p class="pull">״אם אדם רוצה, הוא תמיד ימצא זמן לתורה.״</p>
+
+      <h4 class="sec">אחרית ימיו</h4>
+      <p>בשנת תקפ״ז (1827) חלה רבנו במחלה קשה, ובתקופת מחלתו הוסיפו לו את השם ״יחזקאל״ כסגולה לרפואה. ביום חמישי כ׳ בתשרי תקפ״ח, בחול המועד סוכות, השיב את נשמתו הטהורה ליוצרה — והוא בן ארבעים ואחת בלבד.</p>
+      <p>על פי המסורת, קודם הסתלקותו נודע לרבנו כי מגפה עתידה לפקוד את העיר, ומשמים ניתנה לו האפשרות לקבל על עצמו את הגזרה ולהציל את בני קהילתו. רבנו, שכל ימיו מסר נפשו למען הציבור, בחר להקריב את עצמו לטובת אנשי עירו.</p>
+
+      <h4 class="sec">סגולת התפילה על ציונו</h4>
+      <p>ציונו הקדוש נעשה במשך הדורות מוקד לתפילה ולבקשת רחמים. בספר <strong>״מליצי אש״</strong> מובאת עדות מיוחדת על סגולת המקום:</p>
+      <blockquote>״מי שילך על קברו כשהוא טבול במקווה ומתפלל בלב נשבר — ערב בדבר שתקובל תפילתו… ובאמת ישועות גדולות נעשו לבני אדם שעושין כן.״</blockquote>
+      <p>רבים מקפידים עד היום לטבול במקווה, לעלות אל הקבר בטהרה ולהעתיר בתפילה מתוך הכנעה ולב נשבר.</p>
+
+      <h4 class="sec">המצבה שלא נעקרה</h4>
+      <p>מסורת מופלאה עברה בקרב יהודי המקום מדור לדור. בעת שביקשו השלטונות להקים כנסייה על שטח בית העלמין היהודי, החלו לפנות קברים ולעקור מצבות. כשהגיעו הפועלים אל מצבתו של בעל ה״פלא יועץ״ — לא הצליחו להזיזה. ניסיונות חוזרים לעקור אותה עלו בתוהו.</p>
+      <p>על פי המסורת, לעיני הנוכחים החלה המצבה לשקוע בשלמותה בתוך האדמה. הרוסים, שנדהמו, הבינו כי במקום טמון איש קדוש ונסוגו מתכניתם — וכך נשמר הציון בדרך פלאית לדורות.</p>
+
+      <h4 class="sec">מורשתו החיה</h4>
+      <p>אף שחלפו קרוב למאתיים שנה, תורתו של רבנו מוסיפה להאיר. ספר ה״פלא יועץ״ נלמד בבתי מדרש ובבתים ברחבי העולם, ומעניק עד היום הדרכה, חיזוק ונחמה לרבבות. רבנו הותיר אחריו דרך חיים שלמה: לעבוד את הבורא בתמימות, להרבות שלום, לשאת בעולו של הזולת ולעשות הכול מתוך אהבת ה׳ ואהבת ישראל. משאלת ילדותו — <strong>״להיות יהודי טוב״</strong> — נעשתה לצוואה נצחית לכל אחד ואחת מאיתנו.</p>
+      <blockquote class="center">זכותו של רבנו הקדוש רבי אליעזר פאפו זיע״א תגן עלינו ועל כל ישראל, אמן.</blockquote>
+      <div class="mcta">
+        <a href="#kvittel" class="btn btn-gold" data-close>לשליחת שמות לתפילה</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-stories">
+  <div class="modal">
+    <div class="modal-head">
+      <button class="modal-close" data-close aria-label="סגור">×</button>
+      <span class="eyebrow">פלא ישועות</span>
+      <h3>סיפורי ישועה</h3>
+    </div>
+    <div class="modal-body">
+      <p class="m-sub">מציונו של בעל ה״פלא יועץ״ זיע״א</p>
+      <p>יש מקומות שבהם התפילה מקבלת משמעות אחרת. בסיליסטרה שבבולגריה, הרחק מהמולת החיים, שוכן ציונו של הגאון הקדוש רבי אליעזר פאפו זיע״א. במשך השנים פוקדים את המקום יהודים מכל רחבי העולם, שופכים את ליבם ומבקשים לעורר רחמי שמים בזכות הצדיק. שלושה סיפורים שהגיעו לידינו מפי בעלי המעשה מספרים על רגעים של תפילה — ועל ישועות שהגיעו בעקבותיהם.</p>
+
+      <div class="story">
+        <h4>״אבא, תמצא לי ישיבה״</h4>
+        <p class="attrib">מפי הרב בנימין גרינגרס הי״ו, הפוקד את הציון בקביעות</p>
+        <p>בן למשפחה תורנית חשובה בבית שמש שב יום אחד מן הישיבה, הסתגר בחדרו, ואמר להוריו המודאגים משפט אחד קצר וכואב:</p>
+        <p class="pull">״עם עולם הישיבות — סיימתי.״</p>
+        <p>ההידרדרות הייתה מהירה. הוא רכש מכשיר סלולרי, שקע בו שעות ארוכות וכמעט חדל לתקשר. שבעה חודשים חלפו. באחד הימים פגש הרב גרינגרס את האב, ביקש לפגוש את הבחור, וכשנכנס אליו לא פתח בתוכחה — אלא בהצעה בלתי צפויה: <strong>״בוא איתי לבולגריה.״</strong></p>
+        <p>לאחר הפצרות הסכים. בסיליסטרה סיפר לו הרב על מעלת התפילה במקום, והציע לו לטבול ולהיכנס להתפלל. הבחור נכנס, התפלל ויצא — בלי סימן חיצוני. אך ייתכן שדווקא שם נוצר הסדק הראשון בחומה.</p>
+        <p><strong>שלושה ימים בלבד לאחר ששבו לארץ</strong>, ניגש הבחור אל אביו ובפיו בקשה שהותירה אותו נדהם:</p>
+        <p class="pull">״אבא, תמצא לי ישיבה.״</p>
+        <p>חלפה תקופה. אחד מידידי הקרן הגיע לישיבה, מבלי לדעת על הסיפור, וראש הישיבה הצביע על בחור ואמר בהתרגשות: ״זה בנו של הרב... הוא עומד כעת לערוך סיום מסכת.״ היה זה אותו בחור. הנער שעזב הכול שב אל בית המדרש — וזכה לסיים מסכת.</p>
+      </div>
+
+      <div class="story">
+        <h4>השידוך שחיכה בנחיתה</h4>
+        <p class="attrib">מפי הרב בנימין גרינגרס הי״ו</p>
+        <p>בדרכו לציון עבר הרב גרינגרס דרך בוקרשט, שם פגש זוג יהודים יראי שמים. כששאלוהו על מקום יפה לבקר בו, סיפר להם שהוא בדרך לציונו של בעל ה״פלא יועץ״. הדברים נגעו לליבם, ובתוך זמן קצר החליטו: <strong>גם אנחנו מצטרפים.</strong></p>
+        <p>בדרך נתן להם עצה: כשיגיעו לציון, יתמקדו בבקשה אחת וישפכו עליה את ליבם. רק בדרך חזרה הבין כי בליבם נשאו דאגה גדולה אחת — <strong>שידוך לבנם</strong>.</p>
+        <p>חלפו כשבועיים, והטלפון צלצל. מעבר לקו האב, בקול נרגש:</p>
+        <p class="pull">הבן התארס.</p>
+        <p>ואז הוסיף פרט מטלטל: הצעת השידוך הגיעה אליהם <strong>מיד עם נחיתתם בארץ</strong>, לאחר שובם מהתפילה בציון. סמיכות הזמנים הייתה ברורה — הם חשו כי תפילתם פתחה שער של ישועה.</p>
+      </div>
+
+      <div class="story">
+        <h4>הטלפון שהגיע עוד לפני שיצא מבית העלמין</h4>
+        <p class="attrib">מפי הרב משה לוי מניו־יורק</p>
+        <p>גיסו, אב לשמונה, חלה במחלת כליות קשה. כליותיו חדלו לתפקד והוא נאלץ לעבור דיאליזה שלוש פעמים בשבוע. הוא הוכנס לרשימת המתנה להשתלה — אך ההערכות דיברו על שנה ואף יותר. הרב משה בירר, הפעיל קשרים, אך דבר לא התקדם. כשנדמה היה שבדרך הטבע אין מה לעשות, פנה אל הדרך העתיקה: <strong>תפילה.</strong></p>
+        <p>הוא נסע במיוחד לסיליסטרה, טבל במקווה ונכנס לציון. שם, לבדו, פתח ספר תהילים — פרק אחר פרק, בכה עד שסיים את כולו. ואז הגיע הרגע שהוא מתקשה לשכוח:</p>
+        <p class="pull">עוד בטרם הספיק לצאת מבית העלמין — צלצל הטלפון.</p>
+        <p>רעייתו על הקו, נסערת: ״אין לי דרך להסביר מה קרה — אבל הגיס כבר בדרך לניתוח השתלה.״ את סיפורו הוא מסיים במשפט שנחרת בלב: <strong>״כנראה שכאשר הצדיק ערב בדבר — הוא אינו רוצה להישאר בעל חוב זמן רב...״</strong></p>
+      </div>
+
+      <div class="divider-o">◆ ✦ ◆</div>
+      <p>שלושה אנשים. שלוש מצוקות. שלוש תפילות. אין בידינו חשבונות שמים, ואין אדם היודע כיצד מתקבלת תפילה. אך הסיפורים הללו מזכירים אמת עתיקה ופשוטה: <strong>גם כשהדרך נראית חסומה — יהודי אינו מפסיק להתפלל.</strong></p>
+      <div class="m-quote">
+        <div class="q">בזכות הצדיק — שלח לנו ישועה</div>
+        <small>יש לכם סיפור ישועה מהציון? נשמח לשמוע ולשתף — פנו אלינו דרך הטופס.</small>
+      </div>
+      <div class="mcta">
+        <a href="#kvittel" class="btn btn-gold" data-close>לשליחת שמות לתפילה</a>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="toast" id="toast"></div>
 
 <script>
@@ -880,6 +1094,15 @@ function handleForm(form,title){
   // הסרת שגיאה בהקלדה
   form.querySelectorAll('input,select,textarea').forEach(f=>f.addEventListener('input',()=>f.closest('.fg')?.classList.remove('invalid')));
 }
+// modals (floating windows)
+document.querySelectorAll('[data-modal]').forEach(t=>t.addEventListener('click',e=>{e.preventDefault();const m=document.getElementById('modal-'+t.dataset.modal);if(m){m.classList.add('open');document.body.style.overflow='hidden'}}));
+function closeModals(){document.querySelectorAll('.modal-overlay.open').forEach(m=>m.classList.remove('open'));document.body.style.overflow=''}
+document.querySelectorAll('.modal-overlay').forEach(ov=>ov.addEventListener('click',e=>{if(e.target===ov||e.target.closest('[data-close]'))closeModals()}));
+addEventListener('keydown',e=>{if(e.key==='Escape')closeModals()});
+// dropdown toggle (touch)
+const _dt=document.querySelector('.drop-toggle');
+if(_dt)_dt.addEventListener('click',e=>{e.preventDefault();_dt.closest('.nav-drop').classList.toggle('open')});
+
 handleForm(document.getElementById('kvittelForm'),'קוויטל — שמות לתפילה');
 handleForm(document.getElementById('contactForm'),'פנייה חדשה מהאתר');
 </script>
