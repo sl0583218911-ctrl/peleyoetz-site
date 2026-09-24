@@ -74,12 +74,12 @@ header{position:fixed;top:0;inset-inline:0;z-index:100;transition:var(--tr);back
 header::before,header::after{content:"";position:absolute;bottom:0;top:0;width:200px;pointer-events:none;z-index:0}
 header::before{inset-inline-start:0;background:radial-gradient(150px 70px at 0% 100%,rgba(212,175,55,.28),transparent 72%)}
 header::after{inset-inline-end:0;background:radial-gradient(150px 70px at 100% 100%,rgba(212,175,55,.28),transparent 72%)}
-header .bar{display:flex;align-items:center;justify-content:center;padding:8px 26px;max-width:var(--max);margin:0 auto;position:relative;z-index:1}
+header .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:8px 26px;max-width:var(--max);margin:0 auto;position:relative;z-index:1}
 header.scrolled{background:linear-gradient(180deg,var(--navy-950),var(--navy-900));box-shadow:0 6px 28px rgba(6,11,25,.45)}
-.logo{display:flex;align-items:center;position:absolute;inset-inline-end:26px;top:50%;transform:translateY(-50%)}
-.logo img{height:88px;width:auto;transition:var(--tr);filter:drop-shadow(0 3px 10px rgba(0,0,0,.3))}
-header.scrolled .logo img{height:70px}
-nav.main{display:flex;align-items:center;gap:24px}
+.logo{display:flex;align-items:center;flex-shrink:0}
+.logo img{height:84px;width:auto;transition:var(--tr);filter:drop-shadow(0 3px 10px rgba(0,0,0,.3))}
+header.scrolled .logo img{height:68px}
+nav.main{display:flex;align-items:center;justify-content:center;gap:22px;flex:1}
 .nav-sep{width:1px;height:20px;background:linear-gradient(transparent,var(--gold-400),transparent);opacity:.6;flex-shrink:0}
 nav.main a{color:#EAECF2;font-size:.95rem;font-weight:500;position:relative;padding:6px 0;transition:color .2s;cursor:pointer;letter-spacing:.01em}
 nav.main a::after{content:"";position:absolute;bottom:0;inset-inline:0;height:2px;background:var(--gold-400);transform:scaleX(0);transition:transform .28s}
@@ -352,7 +352,7 @@ footer{background:var(--navy-950);color:var(--text-light);padding:64px 0 28px}
 .toast.show{transform:none;opacity:1}
 
 /* luxury ornaments */
-.sec{position:relative}
+.sec{position:relative;overflow-x:clip}
 .sec>.container{position:relative;z-index:2}
 .watermark{position:absolute;top:50%;transform:translateY(-50%);font-family:var(--font-h);font-weight:900;color:var(--gold-500);opacity:.055;font-size:clamp(14rem,38vw,32rem);line-height:.62;z-index:1;pointer-events:none;user-select:none;white-space:nowrap}
 .watermark.wr{inset-inline-end:-4%}
@@ -416,8 +416,8 @@ footer{background:var(--navy-950);color:var(--text-light);padding:64px 0 28px}
   .drop-toggle{opacity:.6;font-size:.82rem;pointer-events:none}
   .drop-menu{position:static;display:flex !important;background:transparent;border:none;box-shadow:none;margin:4px 0 0;gap:6px;min-width:0;align-items:center;padding:0}
   .drop-menu a{color:#EAECF2 !important;font-size:.98rem;padding:4px !important}
-  header .bar{justify-content:space-between}
-  .logo{position:static;transform:none}
+  .logo-2{display:none}
+  nav.main{flex:none}
   .burger{display:flex;z-index:101}
   .burger.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
   .burger.open span:nth-child(2){opacity:0}
@@ -476,6 +476,7 @@ footer{background:var(--navy-950);color:var(--text-light);padding:64px 0 28px}
       <a href="en.html" class="lang-switch">EN</a>
       <a href="#" data-nedarim class="btn btn-gold nav-cta">לתרומה מאובטחת</a>
     </nav>
+    <a href="#" class="logo logo-2" aria-hidden="true" tabindex="-1"><img src="img/logo.png" alt=""></a>
     <button class="burger" id="burger" aria-label="תפריט"><span></span><span></span><span></span></button>
   </div>
 </header>
