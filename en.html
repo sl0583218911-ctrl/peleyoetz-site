@@ -912,7 +912,10 @@ const galleryImgs = [
   'img/gallery/g11.jpg','img/gallery/g03.jpg','img/gallery/g08.jpg','img/gallery/g22.jpg',
   'img/gallery/g25.jpg','img/gallery/g27.jpg','img/gallery/g13.jpg','img/gallery/g23.jpg',
   'img/gallery/g01.jpg','img/gallery/g02.jpg','img/gallery/g26.jpg','img/gallery/g16.jpg',
-  'img/gallery/g14.jpg','img/gallery/g18.jpg','img/gallery/g24.jpg'
+  'img/gallery/g14.jpg','img/gallery/g18.jpg','img/gallery/g24.jpg','img/gallery/g07.jpg',
+  'img/gallery/g17.jpg','img/gallery/g12.jpg',
+  'img/noroot.jpg','img/2unnamed.jpg','img/unnamed8.jpg','img/7unnamed.jpg',
+  'img/unnamed9.jpg','img/5unnamed.jpg','img/3unnamed.jpg','img/unnamed.jpg'
 ];
 const tiers = [
   {amt:'₪180',what:'Maintain the site for one day',feat:false},
@@ -1003,7 +1006,7 @@ dialWrap.addEventListener('mouseleave',()=>{if(!dragging)dialStart()});
 })();
 
 // gallery
-const spanClass = ['big','','','wide','','','','wide','','big','','','wide','',''];
+const spanClass = ['big','','','wide','','','','wide','','big','','','wide','','','','big','','wide','','','','wide','','',''];
 document.getElementById('galGrid').innerHTML = galleryImgs.map((src,i)=>`
   <div class="g-item ${spanClass[i]||''}" data-idx="${i}"><img src="${src}" alt="The Holy Site — photo ${i+1}" loading="lazy"></div>`).join('');
 
