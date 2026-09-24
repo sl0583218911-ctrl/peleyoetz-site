@@ -71,19 +71,24 @@ img{max-width:100%;display:block}
 
 /* header */
 header{position:fixed;top:0;inset-inline:0;z-index:100;transition:var(--tr);background:linear-gradient(180deg,var(--navy-900),var(--navy-850));box-shadow:0 4px 22px rgba(6,11,25,.3);border-bottom:2px solid var(--gold-400)}
-header .bar{display:flex;align-items:center;justify-content:space-between;padding:8px 24px;max-width:var(--max);margin:0 auto}
+header::before,header::after{content:"";position:absolute;bottom:0;top:0;width:200px;pointer-events:none;z-index:0}
+header::before{inset-inline-start:0;background:radial-gradient(150px 70px at 0% 100%,rgba(212,175,55,.28),transparent 72%)}
+header::after{inset-inline-end:0;background:radial-gradient(150px 70px at 100% 100%,rgba(212,175,55,.28),transparent 72%)}
+header .bar{display:flex;align-items:center;justify-content:center;padding:8px 26px;max-width:var(--max);margin:0 auto;position:relative;z-index:1}
 header.scrolled{background:linear-gradient(180deg,var(--navy-950),var(--navy-900));box-shadow:0 6px 28px rgba(6,11,25,.45)}
-.logo{display:flex;align-items:center}
+.logo{display:flex;align-items:center;position:absolute;inset-inline-end:26px;top:50%;transform:translateY(-50%)}
 .logo img{height:88px;width:auto;transition:var(--tr);filter:drop-shadow(0 3px 10px rgba(0,0,0,.3))}
 header.scrolled .logo img{height:70px}
-nav.main{display:flex;align-items:center;gap:21px}
-nav.main a{color:#EAECF2;font-size:.95rem;font-weight:500;position:relative;padding:6px 0;transition:color .2s;cursor:pointer}
+nav.main{display:flex;align-items:center;gap:24px}
+.nav-sep{width:1px;height:20px;background:linear-gradient(transparent,var(--gold-400),transparent);opacity:.6;flex-shrink:0}
+nav.main a{color:#EAECF2;font-size:.95rem;font-weight:500;position:relative;padding:6px 0;transition:color .2s;cursor:pointer;letter-spacing:.01em}
 nav.main a::after{content:"";position:absolute;bottom:0;inset-inline:0;height:2px;background:var(--gold-400);transform:scaleX(0);transition:transform .28s}
 nav.main a:hover{color:var(--gold-300)}
 nav.main a:hover::after{transform:scaleX(1)}
-.nav-cta{padding:11px 24px !important;font-size:.95rem !important;color:var(--navy-950) !important}
-.lang-switch{border:1.5px solid rgba(226,196,108,.55);border-radius:20px;padding:5px 15px !important;font-size:.85rem !important;font-weight:700 !important;color:var(--gold-300) !important}
-.lang-switch:hover{background:rgba(255,255,255,.08)}
+.nav-cta{padding:11px 26px !important;font-size:.95rem !important;color:var(--navy-950) !important;box-shadow:0 4px 18px rgba(212,175,55,.5);animation:ctaGlow 2.8s ease-in-out infinite}
+@keyframes ctaGlow{0%,100%{box-shadow:0 4px 16px rgba(212,175,55,.4)}50%{box-shadow:0 5px 28px rgba(212,175,55,.75)}}
+.lang-switch{border:1.5px solid rgba(226,196,108,.6);border-radius:50% !important;width:40px;height:40px;padding:0 !important;font-size:.82rem !important;font-weight:700 !important;color:var(--gold-300) !important;display:grid;place-items:center;flex-shrink:0}
+.lang-switch:hover{background:rgba(212,175,55,.18);border-color:var(--gold-300)}
 .lang-switch::after{display:none !important}
 .nav-drop{position:relative}
 .nav-drop .drop-toggle{display:inline-block}
@@ -405,10 +410,14 @@ footer{background:var(--navy-950);color:var(--text-light);padding:64px 0 28px}
   nav.main.open{transform:none}
   nav.main a{color:#EAECF2}
   nav.main .nav-cta{margin-top:8px}
+  .nav-sep{display:none}
+  .lang-switch{margin:4px auto}
   .nav-drop{width:100%;text-align:center}
   .drop-toggle{opacity:.6;font-size:.82rem;pointer-events:none}
   .drop-menu{position:static;display:flex !important;background:transparent;border:none;box-shadow:none;margin:4px 0 0;gap:6px;min-width:0;align-items:center;padding:0}
   .drop-menu a{color:#EAECF2 !important;font-size:.98rem;padding:4px !important}
+  header .bar{justify-content:space-between}
+  .logo{position:static;transform:none}
   .burger{display:flex;z-index:101}
   .burger.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
   .burger.open span:nth-child(2){opacity:0}
@@ -454,10 +463,15 @@ footer{background:var(--navy-950);color:var(--text-light);padding:64px 0 28px}
           <a href="#" data-modal="stories">סיפורי ישועה</a>
         </div>
       </div>
+      <span class="nav-sep"></span>
       <a href="#about">הציון הקדוש</a>
+      <span class="nav-sep"></span>
       <a href="#services">שירותים למבקרים</a>
+      <span class="nav-sep"></span>
       <a href="#gallery">גלריה</a>
+      <span class="nav-sep"></span>
       <a href="#legacy">מורשת הספר</a>
+      <span class="nav-sep"></span>
       <a href="#donate">שותפות</a>
       <a href="en.html" class="lang-switch">EN</a>
       <a href="#" data-nedarim class="btn btn-gold nav-cta">לתרומה מאובטחת</a>
