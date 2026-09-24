@@ -266,6 +266,155 @@ const map=[
 // apply longest-first
 map.sort((a,b)=>b[0].length-a[0].length).forEach(([he,en])=>{h=h.split(he).join(en)});
 
+/* ---- whole-modal English swap (long essays) ---- */
+function swapModal(id,enHtml){
+  const start=h.indexOf('<div class="modal-overlay" id="modal-'+id+'">');
+  if(start<0)return;
+  const nextOv=h.indexOf('<div class="modal-overlay"',start+60);
+  const toast=h.indexOf('<div class="toast"',start);
+  let end=(nextOv>=0&&(toast<0||nextOv<toast))?nextOv:toast;
+  if(end<0)return;
+  h=h.slice(0,start)+enHtml+'\n\n'+h.slice(end);
+}
+const EN_ABOUT=`<div class="modal-overlay" id="modal-about">
+  <div class="modal">
+    <div class="modal-head">
+      <button class="modal-close" data-close aria-label="Close">&times;</button>
+      <span class="eyebrow">About</span>
+      <h3>The Pele Yoetz Heritage Foundation</h3>
+    </div>
+    <div class="modal-body">
+      <p class="m-sub">Behind the scenes of the revival of his holy resting place</p>
+      <h4 class="sec">The Founding</h4>
+      <p>The Pele Yoetz Heritage Foundation was established to preserve, honor and pass down for generations the legacy of the wondrous tzaddik, Rabbi Eliezer Papo zt"l — author of the "Pele Yoetz." His illuminating teachings and many works have accompanied the Jewish people for generations, an inexhaustible source of faith, ethics, awe of Heaven and guidance for life.</p>
+      <p>For many years the holy site in Silistra, Bulgaria stood neglected and without basic conditions. The grave itself had almost no proper shelter from the harsh winter cold or the summer sun, and there was no suitable infrastructure, no orderly space to receive the public, and no mikveh for those wishing to immerse before ascending to the site.</p>
+      <p>Some time ago, Rabbi Chaim Ravad of Jerusalem felt he could no longer accept the situation. Together with a group of friends who had visited the site for years, he took upon himself the great task: to raise the needed resources, restore the place and rebuild the complex in great splendor. Since then, the Foundation's members work with great devotion, traveling many times a year and closely overseeing the works.</p>
+      <h4 class="sec">The Revival Already Underway</h4>
+      <p>In the past year the site has changed beyond recognition. Construction and restoration are in full swing. The mikveh was restored with great beauty and uncompromising adherence to the highest standards of kashrus, in consultation with leading poskim and mikveh experts — among them Rabbi Brandsdorfer and Rabbi Fishhof.</p>
+      <p>The grave area was enclosed by a tent giving visitors shelter from heat and cold, and a new building was placed for hospitality and separate facilities. Visitors on cold days can now find refuge in the hall, warm up and quench their thirst. After years of neglect, the place is beginning to receive the honor it deserves.</p>
+      <h4 class="sec">The Vision</h4>
+      <p>A large-scale plan is currently being advanced before the Silistra municipality, to establish a spacious, magnificent and modern complex that will worthily receive the multitudes of Jews who come to pray at our Rabbi's holy resting place.</p>
+      <div class="vision">
+        <div class="vitem"><b>The Ohel</b><span>The temporary tent will be replaced by a large, spacious, climate-controlled permanent structure, with an orderly women's section and libraries of Tehillim and the works of the Pele Yoetz.</span></div>
+        <div class="vitem"><b>The Hospitality Complex</b><span>A large, elegant building with a modern kitchen, serving hot meals and varied refreshments to visitors year-round.</span></div>
+        <div class="vitem"><b>The Mikveh</b><span>Already active and in its final stages — awaiting an advanced heating system and the necessary furnishings.</span></div>
+        <div class="vitem"><b>The Beis Medrash</b><span>A new study hall will be built beside the site — rooms for prayer and study, a magnificent library and an inviting space to engage with the tzaddik's Torah.</span></div>
+        <div class="vitem"><b>Institute for the Rabbi's Works</b><span>An institute to edit, publish and distribute our Rabbi's works, alongside a kollel dedicated to studying his writings and preparing them for print.</span></div>
+        <div class="vitem"><b>Travel & Hospitality</b><span>Arranging regular routes to the site in Bulgaria, transportation, lodging solutions and full support for visitors throughout the journey.</span></div>
+        <div class="vitem"><b>Spreading the Pele Yoetz's Torah</b><span>All of our Rabbi's works will be reissued in beautiful editions. A special segulah book drawn from his teachings was recently published, and scholarships will be granted to those who study his holy works.</span></div>
+      </div>
+      <h4 class="sec">Realizing the Vision</h4>
+      <p>Realizing this vision requires great resources. Alongside construction and development, the Foundation must fund ongoing electricity and water, hospitality, catering, security, cleaning and maintenance. This is a historic effort, transforming the site in the distant town into a living, vibrant center of prayer, Torah and kindness — and a rare opportunity to partner in restoring the honor of Torah and building a fitting home for the tzaddik.</p>
+      <div class="m-quote">
+        <div class="q">&ldquo;I shall repay with the best&rdquo;</div>
+        <small>The renowned promise of the Pele Yoetz to those who honor his legacy</small>
+      </div>
+      <p>Fortunate is one who merits to take part in this holy endeavor — to help build the site and preserve the legacy of the Pele Yoetz, so it may stand and shine for the Jewish people for many years to come.</p>
+      <div class="mcta">
+        <a href="#" class="btn btn-gold" data-nedarim data-close>Become a Partner — Donate</a>
+        <a href="#kvittel" class="btn btn-navy" data-close>Send Names for Prayer</a>
+      </div>
+    </div>
+  </div>
+</div>`;
+const EN_HISTORY=`<div class="modal-overlay" id="modal-history">
+  <div class="modal">
+    <div class="modal-head">
+      <button class="modal-close" data-close aria-label="Close">&times;</button>
+      <span class="eyebrow">A Pillar of the World</span>
+      <h3>The Life of Our Holy Rabbi</h3>
+    </div>
+    <div class="modal-body">
+      <p class="m-sub">Rabbi Eliezer Papo zt"l — author of the "Pele Yoetz"</p>
+      <h4 class="sec">His Early Years</h4>
+      <p>In 1786, in the city of Sarajevo, Bosnia, our Rabbi, Rabbi Eliezer Papo zt"l, was born — one who would go on to illuminate the world of Torah and mussar. His parents, the pious Rabbi Yitzchak and Mrs. Blanca, raised their son in a home steeped in love of Torah, awe of Heaven and fine character.</p>
+      <p>Already in childhood his purity of heart and lofty aspirations were evident. It is told that when asked what he wished to be when he grew up, he answered simply:</p>
+      <p class="pull">&ldquo;I want to be a good Jew.&rdquo;</p>
+      <p>This brief answer captured the essence of his life: a ceaseless striving for perfection in the service of the Creator — in Torah, prayer, character, and in relationships between people.</p>
+      <h4 class="sec">His Father's Home</h4>
+      <p>In a moving passage, our Rabbi writes of his father's final days, from which we glimpse the exalted home in which he was raised:</p>
+      <blockquote>"My honored father of blessed memory, every day of that illness recited the prayer 'To You, my God, is my longing' and other confessions and supplications of Yom Kippur, and streams of water flowed from his eyes… and to everyone who came to him he would say: 'See the end of flesh and blood.' Fortunate is he and fortunate is his portion."</blockquote>
+      <p>Our Rabbi and his wife merited two sons and two daughters. He mentions his brilliant sons in several of his works, and after his passing his sons took a central role in publishing his writings — and thanks to their devotion the Jewish world gained spiritual treasures whose influence is felt to this day.</p>
+      <h4 class="sec">Rabbi of Silistra</h4>
+      <p>Around 1820, at about thirty-four, our Rabbi was called to serve as rabbi of Silistra, Bulgaria. Despite his young age he was already known as an outstanding Torah scholar and a leader whose community's welfare was always before his eyes. He carried the burden of the public, cared for the poor and weak, and made peace between people.</p>
+      <p>One famous episode tells of a Jew falsely accused and sentenced to death, for whom the authorities demanded an enormous sum. Our Rabbi gathered the townspeople and declared with emotion that if they had no money to redeem him — even the Torah scrolls and sacred vessels should be sold, for saving a life overrides all. His words pierced their hearts, the sum was raised, and the man's life was saved. Such was his way: Torah that does not remain on the page, but descends into life and becomes responsibility, devotion and kindness.</p>
+      <h4 class="sec">His Holy Works</h4>
+      <p>Alongside leading his community, our Rabbi bore a vast Torah enterprise, authoring many works of halacha, mussar, homiletics and prayer. The crown jewel is his renowned <strong>"Pele Yoetz"</strong> — a comprehensive mussar work arranged by topic in alphabetical order, guiding a person in the service of the Creator, refining character, family life and raising children.</p>
+      <p>Its uniqueness is its ability to touch every person — clear, practical words full of love, combining lofty spiritual demand with deep understanding of the human soul. Among his other works is <strong>"Chodesh HaAviv"</strong> on tractates Berachos and Shabbos, on which he labored seven years. When asked how he found the time, he answered:</p>
+      <p class="pull">&ldquo;If a person wants to, he will always find time for Torah.&rdquo;</p>
+      <h4 class="sec">His Final Days</h4>
+      <p>In 1827 our Rabbi fell gravely ill, and during his illness the name "Yechezkel" was added to him as a segulah for healing. On Thursday, the 20th of Tishrei 5588, during Chol HaMoed Sukkos, he returned his pure soul to its Maker — at just forty-one years old.</p>
+      <p>According to tradition, before his passing our Rabbi learned that a plague was to strike the city, and from Heaven he was given the possibility to take the decree upon himself and save his community. Our Rabbi, who all his life gave himself for the public, chose to sacrifice himself for the people of his city.</p>
+      <h4 class="sec">The Power of Prayer at His Site</h4>
+      <p>His holy resting place has, over the generations, become a focus of prayer and pleas for mercy. In the work <strong>"Melitzei Esh"</strong> a special testimony about the site is brought:</p>
+      <blockquote>"Whoever goes to his grave after immersing in a mikveh and prays with a broken heart — it is assured that his prayer will be accepted… and indeed great salvations have come to those who do so."</blockquote>
+      <p>Many are careful to this day to immerse in a mikveh, ascend to the grave in purity, and pour out prayer with humility and a broken heart.</p>
+      <h4 class="sec">The Headstone That Would Not Move</h4>
+      <p>A wondrous tradition passed among the local Jews from generation to generation. When the authorities sought to build a church on the Jewish cemetery grounds, they began clearing graves and uprooting headstones. When the workers reached the headstone of the Pele Yoetz — they could not move it. Repeated attempts to uproot it came to nothing.</p>
+      <p>According to tradition, before those present the headstone began to sink whole into the ground. The astonished Russians understood that a holy man lay there and abandoned their plan — and so the site was miraculously preserved for generations.</p>
+      <h4 class="sec">His Living Legacy</h4>
+      <p>Though nearly two hundred years have passed, our Rabbi's Torah continues to shine. The "Pele Yoetz" is studied in study halls and homes around the world, giving guidance, strength and comfort to countless people to this day. Our Rabbi left behind a whole way of life: to serve the Creator with simplicity, increase peace, bear the burden of others, and do everything out of love of God and love of Israel. His childhood wish — <strong>"to be a good Jew"</strong> — became an eternal testament to each and every one of us.</p>
+      <blockquote class="center">May the merit of our holy Rabbi, Rabbi Eliezer Papo zt"l, protect us and all Israel, Amen.</blockquote>
+      <div class="mcta">
+        <a href="#kvittel" class="btn btn-gold" data-close>Send Names for Prayer</a>
+      </div>
+    </div>
+  </div>
+</div>`;
+const EN_STORIES=`<div class="modal-overlay" id="modal-stories">
+  <div class="modal">
+    <div class="modal-head">
+      <button class="modal-close" data-close aria-label="Close">&times;</button>
+      <span class="eyebrow">Wondrous Salvations</span>
+      <h3>Stories of Salvation</h3>
+    </div>
+    <div class="modal-body">
+      <p class="m-sub">From the resting place of the Pele Yoetz zt"l</p>
+      <p>There are places where prayer takes on a different meaning. In Silistra, Bulgaria, far from the bustle of life, lies the resting place of the holy gaon Rabbi Eliezer Papo zt"l. Over the years Jews from around the world visit, pour out their hearts and seek to arouse Heavenly mercy in the tzaddik's merit. Three stories that reached us from those who lived them tell of moments of prayer — and of salvations that followed.</p>
+      <div class="story">
+        <h4>&ldquo;Dad, find me a yeshiva&rdquo;</h4>
+        <p class="attrib">From Rabbi Binyamin Gringras, a regular visitor to the site</p>
+        <p>A son of a prominent Torah family in Beit Shemesh returned one day from yeshiva, shut himself in his room, and told his worried parents one short, painful sentence:</p>
+        <p class="pull">&ldquo;I'm done with the yeshiva world.&rdquo;</p>
+        <p>The decline was swift. He bought a smartphone, sank into it for hours and nearly stopped communicating. Seven months passed. One day Rabbi Gringras met the father, asked to meet the young man, and when he entered did not open with rebuke — but with an unexpected offer: <strong>"Come with me to Bulgaria."</strong></p>
+        <p>After much urging he agreed. In Silistra the Rabbi told him of the power of prayer at the site, and suggested he immerse and go in to pray. The young man went in, prayed, and left — with no outward sign. Yet perhaps there, quietly, the first crack in the wall was formed.</p>
+        <p><strong>Just three days after they returned home</strong>, the young man approached his father with a request that left him stunned:</p>
+        <p class="pull">&ldquo;Dad, find me a yeshiva.&rdquo;</p>
+        <p>Time passed. A friend of the Foundation visited the yeshiva, unaware of the story, and the rosh yeshiva pointed to a student and said with emotion: "That's the son of Rabbi… he is about to make a siyum on a tractate." It was that same young man. The boy who had left everything returned to the beis medrash — and merited to complete a tractate.</p>
+      </div>
+      <div class="story">
+        <h4>The Match Waiting at the Landing</h4>
+        <p class="attrib">From Rabbi Binyamin Gringras</p>
+        <p>On his way to the site, Rabbi Gringras passed through Bucharest, where he met a G-d-fearing Jewish couple. When they asked him about a nice place to visit, he told them he was on his way to the resting place of the Pele Yoetz. The words touched their hearts, and shortly they decided: <strong>we're joining too.</strong></p>
+        <p>On the way he gave them advice: when they reach the site, focus on one request and pour out their hearts over it. Only on the way back did he understand they carried one great worry — <strong>a match for their son</strong>.</p>
+        <p>About two weeks passed, and the phone rang. On the line, the father, his voice trembling:</p>
+        <p class="pull">Their son was engaged.</p>
+        <p>And then he added a staggering detail: the match proposal reached them <strong>the moment they landed back home</strong>, after returning from prayer at the site. The timing was unmistakable — they felt their prayer had opened a gate of salvation.</p>
+      </div>
+      <div class="story">
+        <h4>The Call That Came Before He Left the Cemetery</h4>
+        <p class="attrib">From Rabbi Moshe Levi of New York</p>
+        <p>His brother-in-law, a father of eight, fell ill with severe kidney disease. His kidneys failed and he had to undergo dialysis three times a week. He was placed on a transplant waiting list — but estimates spoke of a year or more. Rabbi Moshe inquired and pulled every connection, but nothing progressed. When it seemed nothing more could be done by natural means, he turned to the ancient way: <strong>prayer.</strong></p>
+        <p>He traveled specially to Silistra, immersed in the mikveh and entered the site. There, alone, he opened a book of Tehillim — chapter after chapter, weeping until he finished it all. And then came the moment he can hardly forget:</p>
+        <p class="pull">Before he could even leave the cemetery — the phone rang.</p>
+        <p>His wife was on the line, shaken: "I have no way to explain what happened — but your brother-in-law is already on his way to transplant surgery." He ends his story with a line etched in the heart: <strong>"Apparently, when the tzaddik vouches for something — he does not wish to remain in debt for long…"</strong></p>
+      </div>
+      <div class="divider-o">&#9670; &#10022; &#9670;</div>
+      <p>Three people. Three hardships. Three prayers. We hold no Heavenly accounts, and no one knows how a prayer is answered. Yet these stories recall an ancient, simple truth: <strong>even when the way looks blocked — a Jew never stops praying.</strong></p>
+      <div class="m-quote">
+        <div class="q">In the tzaddik's merit — send us salvation</div>
+        <small>Do you have a story of salvation from the site? We'd love to hear and share it — reach out through the form.</small>
+      </div>
+      <div class="mcta">
+        <a href="#kvittel" class="btn btn-gold" data-close>Send Names for Prayer</a>
+      </div>
+    </div>
+  </div>
+</div>`;
+swapModal('about',EN_ABOUT);
+swapModal('history',EN_HISTORY);
+swapModal('stories',EN_STORIES);
+
 // post cleanup of remaining Hebrew inside comments (invisible)
 h=h.replace('// מספר WhatsApp בפורמט בינלאומי ללא + וללא 0 מוביל (972 = ישראל)','// WhatsApp number, international format, no + / no leading 0 (972 = Israel)');
 h=h.replace('WhatsApp הקרן: 02-570-3060 (ודא WhatsApp Business על הקו)','Foundation WhatsApp: 02-570-3060');
