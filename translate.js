@@ -13,6 +13,10 @@ h=h.replace("--font-h:'Frank Ruhl Libre',serif; --font-b:'Assistant','Frank Ruhl
 h=h.replace('style="text-align:right"','style="text-align:left"');
 // map language
 h=h.replace('&z=15&hl=he&output=embed','&z=15&hl=en&output=embed');
+// SEO tags for the English page
+h=h.replace('<link rel="canonical" href="https://kpyb.org/">','<link rel="canonical" href="https://kpyb.org/en.html">');
+h=h.replace('<meta property="og:url" content="https://kpyb.org/">','<meta property="og:url" content="https://kpyb.org/en.html">');
+h=h.replace('content="he_IL"','content="en_US"');
 // counters number locale
 h=h.split("toLocaleString('he')").join("toLocaleString('en-US')");
 // carousel direction for LTR (swap next/prev signs)
@@ -217,6 +221,10 @@ const map=[
 ["מורשת","Legacy"],
 ["אודות","About"],
 ["סגור","Close"],
+// SEO meta content
+["הציון הקדוש של הרב אליעזר פאפו זצ״ל — בעל ה״פלא יועץ״. תכנון ביקור, שליחת שמות לתפילה, ושותפות בהחזקת הציון.","The holy resting place of Rabbi Eliezer Papo zt\"l — author of the \"Pele Yoetz.\" Plan a visit, send names for prayer, and partner in maintaining the site."],
+["הקרן למורשת פלא יועץ — שימור ופיתוח ציונו הקדוש של הרב אליעזר פאפו זצ״ל בסיליסטרה, בולגריה.","Pele Yoetz Heritage Foundation — preserving and developing the holy resting place of Rabbi Eliezer Papo zt\"l in Silistra, Bulgaria."],
+["ציון הפלא יועץ","Tomb of the Pele Yoetz"],
 // nav dropdown + modal headings (chrome). Bodies remain Hebrew for now.
 ["אודות ▾","About ▾"],
 ["אודות הקרן","About the Foundation"],
