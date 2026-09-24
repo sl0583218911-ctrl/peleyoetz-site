@@ -224,7 +224,7 @@ nav.main a:hover::after{transform:scaleX(1)}
 }
 
 /* gallery */
-.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:16px}
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:16px;grid-auto-flow:dense}
 .g-item{position:relative;overflow:hidden;border-radius:var(--r-md);cursor:pointer;box-shadow:var(--sh-soft)}
 .g-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
 .g-item::after{content:"🔍";position:absolute;inset:0;display:grid;place-items:center;background:rgba(11,19,43,.55);color:#fff;font-size:1.6rem;opacity:0;transition:opacity .3s}
