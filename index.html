@@ -927,14 +927,10 @@ const ICONS = {
   pray:'<path d="M12 2 8 8v6c0 3 2 5 4 8 2-3 4-5 4-8V8l-4-6Zm0 4 2 3v5c0 1.6-.8 2.9-2 4.5-1.2-1.6-2-2.9-2-4.5V9l2-3Z"/>'
 };
 const galleryImgs = [
-  'img/noroot.jpg',
-  'img/2unnamed.jpg',
-  'img/unnamed8.jpg',
-  'img/7unnamed.jpg',
-  'img/unnamed9.jpg',
-  'img/5unnamed.jpg',
-  'img/3unnamed.jpg',
-  'img/unnamed.jpg'
+  'img/gallery/g11.jpg','img/gallery/g03.jpg','img/gallery/g08.jpg','img/gallery/g22.jpg',
+  'img/gallery/g25.jpg','img/gallery/g27.jpg','img/gallery/g13.jpg','img/gallery/g23.jpg',
+  'img/gallery/g01.jpg','img/gallery/g02.jpg','img/gallery/g26.jpg','img/gallery/g16.jpg',
+  'img/gallery/g14.jpg','img/gallery/g18.jpg','img/gallery/g24.jpg'
 ];
 const tiers = [
   {amt:'₪180',what:'החזקת הציון ליום אחד',feat:false},
@@ -1025,7 +1021,7 @@ dialWrap.addEventListener('mouseleave',()=>{if(!dragging)dialStart()});
 })();
 
 // gallery (עם פריטים גדולים לעניין ויזואלי)
-const spanClass = ['big','','','wide','','','','wide'];
+const spanClass = ['big','','','wide','','','','wide','','big','','','wide','',''];
 document.getElementById('galGrid').innerHTML = galleryImgs.map((src,i)=>`
   <div class="g-item ${spanClass[i]||''}" data-idx="${i}"><img src="${src}" alt="הציון הקדוש — תמונה ${i+1}" loading="lazy"></div>`).join('');
 
